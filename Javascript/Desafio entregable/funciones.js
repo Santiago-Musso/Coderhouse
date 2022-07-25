@@ -26,8 +26,6 @@ function ejecutarCalculadora(){
 }
 
 const calculador = (operacion) => {
-    let numero1, numero2 = 0
-
     do{
         numero1 = parseFloat(prompt(`Ingrese el primer número a ${operacion}: `))
         numero2 = parseFloat(prompt(`Ingrese el segundo número a ${operacion}: `))
