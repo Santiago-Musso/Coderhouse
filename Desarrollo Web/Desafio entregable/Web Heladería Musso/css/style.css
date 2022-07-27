@@ -1,0 +1,102 @@
+.navegador{
+    background-color: #fff;
+    position: sticky;
+    top: 146px;
+}
+.navegador__contenedor{
+    background-color:rgba(209,176,146);
+    max-width: 1000px;
+    width: 100%;
+    margin: auto;
+}
+.navegador__contenedor__item{
+    width: 14.5%;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+    display: inline-block;
+}
+.navegador__contenedor__item:hover{
+    color: black;
+    font-weight: 700;
+}
+.header{
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+}
+.header__table{
+    width: 1000px;
+    margin: auto;
+}
+.header li{
+    color: #AAA8A8;
+    list-style-type: none;
+}
+.footer__fieldset__span h3{
+    color: rgba(209,176,146);
+    display: inline-block;
+}
+.footer__fieldset__span__lista{
+    color: rgba(209,176,146);
+    list-style-type: none;
+    display: inline-block;
+}
+.footer__fieldset__span{
+    box-sizing: border-box;
+    border: #000 1px solid;
+    padding: 0 0.6rem;
+    display: inline-block;
+    background-color: #fff;
+}
+.footer__fieldset__redes{
+    display: inline-block;
+    position: relative;
+    left: 80%;
+}
+.footer__fieldset{
+    background-color: rgba(209,176,146)
+}
+.footer__fieldset__redes__twitter{
+    max-width: 29px;
+    max-height: 29px;
+}
+.helados__contenedor{
+    width: 1000px;
+    margin: auto;
+}
+.helados__contenedor h1{
+    text-align: center;
+}
+.section{
+    margin: auto;
+}
+.section h1{
+    position: absolute;
+    top: 300px;
+    left: 40%;
+    color: #000;
+    background-color: #fff;
+}
+.section a {
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+}
+.section a span{
+    position: absolute;
+    background-color: #000;
+    border: #fff solid;
+    padding: 1.5rem;
+    top: 400px;
+    left: 44%;
+    transition: 0.7s;
+}
+.section a span:hover{
+    background-color: #ff00ff;
+}
+.imagenNosotros{
+    display: block;
+    margin: auto;
+}
