@@ -5,7 +5,6 @@
 }
 .navegador__contenedor{
     background-color:rgba(209,176,146);
-    max-width: 1000px;
     width: 100%;
     margin: auto;
 }
@@ -39,6 +38,7 @@
     display: inline-block;
 }
 .footer__fieldset__span__lista{
+    list-style-image: url(../images/delivery.png);
     color: rgba(209,176,146);
     list-style-type: none;
     display: inline-block;
@@ -56,7 +56,8 @@
     left: 80%;
 }
 .footer__fieldset{
-    background-color: rgba(209,176,146)
+    background-color: rgba(209,176,146);
+    margin: auto;
 }
 .footer__fieldset__redes__twitter{
     max-width: 29px;
@@ -72,17 +73,23 @@
 .section{
     margin: auto;
 }
+.section__imagen{
+    width: 100%;
+}
 .section h1{
     position: absolute;
     top: 300px;
-    left: 40%;
+    left: 36%;
     color: #000;
     background-color: #fff;
+    font-family: 'Ibarra Real Nova', serif;
+    font-size: 30px;
 }
 .section a {
     text-decoration: none;
     color: #fff;
     text-align: center;
+    font-family: 'Ibarra Real Nova', serif;
 }
 .section a span{
     position: absolute;
@@ -90,7 +97,7 @@
     border: #fff solid;
     padding: 1.5rem;
     top: 400px;
-    left: 44%;
+    left: 43%;
     transition: 0.7s;
 }
 .section a span:hover{
