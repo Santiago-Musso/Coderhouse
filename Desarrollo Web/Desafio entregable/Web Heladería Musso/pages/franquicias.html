@@ -50,85 +50,63 @@
         </div>          
     </nav>
 
-    <section>
-        <table>
-            <tr>
-                <td>
-                    <img src="../images/franquicia-helado.jpg" alt="Pote de helado" height="224px" width="300px">
-                </td>
-                <td>
-                    <p>
-                        Con más de 30 años de experiencia, a partir de su fundación alla por el año 1986 en la ciudad de Jose León Suarez,Trápani ha logrado desarrollar un producto gourmet de excelencia en sus más de 30 variedades. Materias primas de alta calidad y un muy cuidado proceso de elaboración nos mantienen a la vanguardia en el mercado nacional.
-                        Ofrecemos nuestros productos en ambientes bien logrados en estética y diseño, procurando una armonía perfecta entre ambos.Esta combinación, acompañada de una excelente atención, brinda una oportunidad única de inversión en el mercado, en donde el buen vínculo con los consumidores además de ser inmediato, invita a ser cotidiano.
-                    </p>
-                </td>
-                <td>    
-                    <fieldset>
-                        <table>
-                            <legend>FORMULARIO DE SOLICITUD</legend>
-                            <tr>
-                                <td><input type="text" placeholder="NOMBRE*"></td>
-                                <td><input type="text" placeholder="APELLIDO*"></td>
-                                <td><input type="text" placeholder="DIRECCION*"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" placeholder="PAIS*"></td>
-                                <td><input type="text" placeholder="LOCALIDAD*"></td>
-                                <td><input type="text" placeholder="CODIGO POSTAL*"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" placeholder="TELEFONO*"></td>
-                                <td><input type="email" placeholder="EMAIL*"></td>
-                                <td>
-                                    <label for="fecha_nac">Fecha de nacimiento: </label>
-                                    <input id="fecha_nac" type="date">
-                                </td>
-                            </tr>
-                            <tr> 
-                                <td>
-                                    <label for="conocio">CÓMO NOS CONOCIÓ? *</label>
-                                    <input type="text" id="conocio">
-                                </td>
-                                <td>
-                                    <label for="experiencia">POSEE EXPERIENCIA EN EL RUBRO GASTRONÓMICO? *</label>
-                                    <input type="text" id="experiencia">
-                                </td>
-                                <td>
-                                    <label for="gente">CON GENTE A CARGO?*</label>
-                                    <input type="text" id="gente">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    <label for="ocupacion">OCUPACIÓN ACTUAL? *</label>
-                                    <input type="text" id="ocupacion">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="zona">ZONA ELEGIDA PARA DESARROLLAR LA FRANQUICIA? *</label>
-                                    <input type="text" id="zona">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    <label for="informacion">DETALLE CUALQUIER INFORMACIÓN PERSONAL O FINANCIERA QUE PUEDA AYUDAR A LA EVALUACION *</label>
-                                    <textarea id="informacion" cols="100%" rows="5" style="resize: none;"></textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    <label for="comentario">ENVÍE SU COMENTARIO, Y SI LO DESEA, PIDA INFORMACIÓN EN PARTICULAR SOBRE ESTA FRANQUICIA.</label>
-                                    <textarea id="comentario" cols="100%" rows="5" style="resize: none;"></textarea>
-                                </td>
-                            </tr>
-                        </table>                             
-                    </fieldset>             
-                </td>
-            </tr>
-        </table>
+    <section class="franquicia">
+        <div class="franquicia__contenedor franquicia__contenedor--card">
+            <img src="../images/franquicia-helado.jpg" alt="Pote de helado" height="448px" width="600px">
+            <p class="formulario__contenedor__parrafo">
+                Con más de 30 años de experiencia, a partir de su fundación alla por el año 1986 en la ciudad de Jose León Suarez, Trápani ha logrado desarrollar un producto gourmet de excelencia en sus más de 30 variedades. Materias primas de alta calidad y un muy cuidado proceso de elaboración nos mantienen a la vanguardia en el mercado nacional.
+                Ofrecemos nuestros productos en ambientes bien logrados en estética y diseño, procurando una armonía perfecta entre ambos.Esta combinación, acompañada de una excelente atención, brinda una oportunidad única de inversión en el mercado, en donde el buen vínculo con los consumidores además de ser inmediato, invita a ser cotidiano.
+            </p>
+        </div>
+        <div class="franquicia__contenedor">
+            <fieldset>
+                <legend>FORMULARIO DE SOLICITUD</legend>
+                <div>
+                    <div class="franquicia__contenedor__fila">
+                        <input class="franquicia__contenedor__fila__input" type="text" placeholder="NOMBRE*">
+                        <input class="franquicia__contenedor__fila__input" type="text" placeholder="APELLIDO*">
+                        <input class="franquicia__contenedor__fila__input" type="text" placeholder="DIRECCION*">
+                    </div>
+                    <div class="franquicia__contenedor__fila">
+                        <input class="franquicia__contenedor__fila__input" type="text" placeholder="PAIS*">
+                        <input class="franquicia__contenedor__fila__input" type="text" placeholder="LOCALIDAD*">
+                        <input class="franquicia__contenedor__fila__input" type="text" placeholder="CODIGO POSTAL*">
+                    </div>
+                    <div class="franquicia__contenedor__fila">
+                        <input class="franquicia__contenedor__fila__input" type="text" placeholder="TELEFONO*">
+                        <input class="franquicia__contenedor__fila__input" type="email" placeholder="EMAIL*">
+                        <label for="fecha_nac">Fecha de nacimiento: </label>
+                        <input class="franquicia__contenedor__fila__input --ancho" id="fecha_nac" type="date">
+                    </div>
+                    <div class="franquicia__contenedor__fila1"> 
+                        <label for="conocio">CÓMO NOS CONOCIÓ? *</label>
+                        <input type="text" id="conocio">
+                        <label for="experiencia">POSEE EXPERIENCIA EN EL RUBRO GASTRONÓMICO? *</label>
+                        <input type="text" id="experiencia">
+                        <label for="gente">CON GENTE A CARGO?*</label>
+                        <input type="text" id="gente">
+                    </div>
+                    <div class="franquicia__contenedor__fila">
+                        <label for="ocupacion">OCUPACIÓN ACTUAL? *</label>
+                        <input type="text" id="ocupacion">
+                    </div>
+                    <div class="franquicia__contenedor__fila">
+                        <label for="zona">ZONA ELEGIDA PARA DESARROLLAR LA FRANQUICIA? *</label>
+                        <input type="text" id="zona">
+                    </div>
+                    <div class="franquicia__contenedor__fila">
+                        <label for="informacion">DETALLE CUALQUIER INFORMACIÓN PERSONAL O FINANCIERA QUE PUEDA AYUDAR A LA EVALUACION *</label>
+                        <textarea id="informacion" cols="100%" rows="5" style="resize: none;"></textarea>
+                    </div>
+                    <div class="franquicia__contenedor__fila">
+                        <label for="comentario">ENVÍE SU COMENTARIO, Y SI LO DESEA, PIDA INFORMACIÓN EN PARTICULAR SOBRE ESTA FRANQUICIA.</label>
+                        <textarea id="comentario" cols="100%" rows="5" style="resize: none;"></textarea>
+                    </div>
+                </div>                             
+            </fieldset>
+        </div>
     </section>
-
+    <img class="newsletter" src="../images/newsletter.webp" alt="Suscribite a las promociones">
     <footer class="footer">
         <fieldset class="footer__fieldset">
             <aside class="footer__fieldset__redes">

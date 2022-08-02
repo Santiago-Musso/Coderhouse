@@ -63,12 +63,20 @@
     max-width: 29px;
     max-height: 29px;
 }
-.helados__contenedor{
-    width: 1000px;
+.menu {
+    max-width: 1000px;
     margin: auto;
+    font-family: 'Ibarra Real Nova', serif;
 }
-.helados__contenedor h1{
+.menu h1{
     text-align: center;
+}
+.menu h4{
+    text-align: center;
+}
+.menu__helados__bombones {
+    text-align: center;
+    width: 100%;
 }
 .section{
     margin: auto;
@@ -106,4 +114,64 @@
 .imagenNosotros{
     display: block;
     margin: auto;
+}
+.formulario{
+    max-width: 1000px;
+    margin: auto;
+}
+.formulario__contenedor{
+    display: inline-block;
+    margin: 0.3rem;
+}
+.formulario__contenedor--block{
+    display: block;
+}
+.formulario__contenedor__texto {
+    width: 100%;
+    height: 10rem;
+}
+.formulario__contenedor--derecha{
+    position: relative;
+    left: 55%;
+}
+.franquicia__contenedor{
+    display: inline-block;
+    text-align: center;
+}
+.franquicia {
+    max-width: 1600px;
+    margin: auto;
+}
+.formulario__contenedor__parrafo{
+    text-align: center;
+    font-size: 29px;
+    max-width: 600px;
+    display: inline-block;
+}
+.franquicia__contenedor--card{
+    box-sizing: border-box;
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    background-color: rgb(232, 217, 201);
+}
+.franquicia__contenedor--card img {
+    border: #000 solid 2px;
+}
+.franquicia__contenedor__fila__input {
+    width: 20%;
+}
+.--ancho {
+    width: 11%;
+}
+.franquicia__contenedor__fila1 input{
+    width: 60%;
+    display: inline-block;
+}
+.newsletter {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    max-width: 60px;
+    max-height: 60px;
 }

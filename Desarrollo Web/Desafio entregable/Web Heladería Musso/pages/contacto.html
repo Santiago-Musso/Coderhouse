@@ -51,26 +51,26 @@
     </nav>
 
     <section>
-        <form>
+        <form class="formulario">
             <fieldset>
                 <legend>Ingrese los siguientes Datos</legend>
-                <div>
+                <div class="formulario__contenedor">
                     <label for="nombre">Nombre: </label>
                     <input id="nombre" type="text" required>
                 </div>
-                <div>
+                <div class="formulario__contenedor">
                     <label for="apellido">Apellido: </label>
                     <input id="apellido" type="text" required>                
                 </div>
-                <div>
+                <div class="formulario__contenedor">
                     <label for="telefono">Telefono: </label>
                     <input id="telefono" type="number" required>                
                 </div>
-                <div>
+                <div class="formulario__contenedor">
                     <label for="email">Email: </label>
                     <input id="email" type="email" required>                
                 </div>
-                <div>
+                <div class="formulario__contenedor">
                     <label for="prov">Indique Provincia: </label>
                     <select name="provincia" id="prov">
                         <option value="Caba">Capital Federal</option>
@@ -99,19 +99,22 @@
                         <option value="Tucuman">Tucuman</option>
                     </select>
                 </div>
-                <div>
+                <div class="formulario__contenedor formulario__contenedor--block">
                     <label for="comentario">Comentario: </label>
-                    <textarea id="comentario" cols="30" rows="10" required style="resize: none;"></textarea>
+                    <textarea class="formulario__contenedor__texto" id="comentario" required style="resize: none;"></textarea>
                 </div>
-                <div>
+                <div class="formulario__contenedor">
                     <label for="contacto">Medio de contacto preferido: </label>
                     <input type="radio" name="contacto" required>Email
                     <input type="radio" name="contacto" required>Telefono
+                </div>
+                <div class="formulario__contenedor--derecha">
+                    <input type="button" value="Enviar">
                 </div>            
             </fieldset>
         </form>
     </section>
-
+    <img class="newsletter" src="../images/newsletter.webp" alt="Suscribite a las promociones">
     <footer class="footer">
         <fieldset class="footer__fieldset">
             <aside class="footer__fieldset__redes">
