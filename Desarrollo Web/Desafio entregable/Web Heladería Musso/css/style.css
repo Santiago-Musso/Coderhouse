@@ -44,17 +44,15 @@
     display: inline-block;
 }
 .footer__fieldset__span__lista--sinimagen{
-    margin-top: 0; 
-    padding: 0;
     list-style-type: none;
     display: inline-block;
-    margin-top: 8px;
+    padding: 0;
 }
-.wpp2{
-    height: 24px;
+.footer__fieldset__span__lista--sinimagen a{
+    line-height: 24px;
 }   
 .wpp{
-    display: block;
+    vertical-align: middle;
 }
 .footer__fieldset__span{
     box-sizing: border-box;
