@@ -43,6 +43,19 @@
     list-style-type: none;
     display: inline-block;
 }
+.footer__fieldset__span__lista--sinimagen{
+    margin-top: 0; 
+    padding: 0;
+    list-style-type: none;
+    display: inline-block;
+    margin-top: 8px;
+}
+.wpp2{
+    height: 24px;
+}   
+.wpp{
+    display: block;
+}
 .footer__fieldset__span{
     box-sizing: border-box;
     border: #000 1px solid;
@@ -116,10 +129,11 @@
     margin: auto;
 }
 .formulario{
+    margin: 5rem auto 5rem auto;
     max-width: 1000px;
-    margin: auto;
 }
 .formulario__contenedor{
+    height: 100%;
     display: inline-block;
     margin: 0.3rem;
 }
@@ -131,6 +145,7 @@
     height: 10rem;
 }
 .formulario__contenedor--derecha{
+    display: inline-block;
     position: relative;
     left: 55%;
 }
@@ -139,7 +154,7 @@
     text-align: center;
 }
 .franquicia {
-    max-width: 1600px;
+    max-width: 1300px;
     margin: auto;
 }
 .formulario__contenedor__parrafo{
@@ -155,6 +170,9 @@
     width: 100%;
     background-color: rgb(232, 217, 201);
 }
+.franquicia__contenedor__fila {
+    margin: 0.3rem auto 0.3rem auto;
+}
 .franquicia__contenedor--card img {
     border: #000 solid 2px;
 }
@@ -162,11 +180,15 @@
     width: 20%;
 }
 .--ancho {
-    width: 11%;
+    width: 9%;
 }
-.franquicia__contenedor__fila1 input{
-    width: 60%;
-    display: inline-block;
+.franquicia__contenedor__fila1 {
+    max-width: 90%;
+    margin: auto;
+}
+.franquicia__contenedor__fila1__input{
+    width: 40%;
+    margin: 0.3rem auto 0.3rem auto
 }
 .newsletter {
     position: fixed;
