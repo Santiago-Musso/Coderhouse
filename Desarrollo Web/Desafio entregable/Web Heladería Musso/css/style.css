@@ -195,3 +195,42 @@
     max-width: 60px;
     max-height: 60px;
 }
+.sectionlocales__contenedor {
+    max-width: 600px;
+    margin: auto;
+}
+.sectionlocales__contenedor__card{
+    font-size: larger;
+    text-align: center;
+    margin: 2.5rem;
+    display: block;
+    border-radius: 1rem;
+    background-color: rgba(209,176,146);
+}
+.sectionlocales input{
+    display: none;
+}
+.sectionlocales__contenedor__card--oculto{
+    background-color: #fff;
+    border: rgba(209,176,146) solid 2px ;
+    margin: auto;
+    display: none;
+}
+#mercedes:checked + label > span{
+    display: block;
+}
+#lobos:checked + label > span{
+    display: block;
+}
+#chivilcoy:checked + label > span{
+    display: block;
+}
+#mayo:checked + label > span{
+    display: block;
+}
+#ballester:checked + label > span{
+    display: block;
+}
+#suarez:checked + label > span{
+    display: block;
+}
