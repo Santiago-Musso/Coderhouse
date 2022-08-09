@@ -215,6 +215,7 @@
     border: rgba(209,176,146) solid 2px ;
     margin: auto;
     display: none;
+    
 }
 #mercedes:checked + label > span{
     display: block;
