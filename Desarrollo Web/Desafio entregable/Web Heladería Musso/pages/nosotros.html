@@ -9,76 +9,71 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <header class="header">
-        <table class="header__table">
-            <tr>
-                <td><img src="../images/contacto.webp"></td>
-                <td>
-                    <ul>
-                        <li>02346-434880 - Chivilcoy</li>
-                        <li>02227-424234- Lobos</li>
-                        <li>011- 3578-3051 - J.L.Suárez</li>
-                        <li>02345-462100 - 25 de Mayo</li>
-                        <li>02324-434436 - Mercedes</li>
-                        <li>011 4840-3072 - V.Ballester</li>
-                    </ul>
-                </td>
-                <td><a href="../index.html"><img src="../images/logoheader.webp"></a></td>
-                <td>
-                    <ul>
-                        <li>Av. Sarmiento 61 - Chivilcoy</li>
-                        <li>25 de Mayo 31 - Lobos</li>
-                        <li>Av. Márquez 2400 - J.L.Suárez</li>
-                        <li>Calle 9  n°1089 - 25 de Mayo</li>
-                        <li>Av. 29 Esq. Calle 22 - Mercedes</li>
-                        <li>Marengo 4424 - V.Ballester</li>
-                    </ul>
-                </td>
-                <td><img src="../images/ubicacion.webp"></td>
-            </tr>
-        </table>           
+    <header class="body__header"><!-- Ya tiene flexbox -->
+        <div class="body__header__contenedor">
+            <img src="../images/contacto.webp">
+            <ul>
+                <li>02346-434880 - Chivilcoy</li>
+                <li>02227-424234- Lobos</li>
+                <li>011- 3578-3051 - J.L.Suárez</li>
+                <li>02345-462100 - 25 de Mayo</li>
+                <li>02324-434436 - Mercedes</li>
+                <li>011 4840-3072 - V.Ballester</li>
+            </ul>
+            <a href="./index.html"><img src="../images/logoheader.webp"></a>
+            <ul>
+                <li>Av. Sarmiento 61 - Chivilcoy</li>
+                <li>25 de Mayo 31 - Lobos</li>
+                <li>Av. Márquez 2400 - J.L.Suárez</li>
+                <li>Calle 9  n°1089 - 25 de Mayo</li>
+                <li>Av. 29 Esq. Calle 22 - Mercedes</li>
+                <li>Marengo 4424 - V.Ballester</li>
+            </ul>
+            <img src="../images/ubicacion.webp">
+        </div>
+        <nav class="body__header__navegador"><!-- Ya tiene flexbox -->
+            <div class="body__header__navegador__contenedor">
+                <a class="body__header__navegador__contenedor__item" href="../index.html">HOME</a>
+                <a class="body__header__navegador__contenedor__item" href="../pages/menu.html">MENU</a>
+                <a class="body__header__navegador__contenedor__item" href="../pages/nosotros.html">NOSOTROS</a>
+                <a class="body__header__navegador__contenedor__item" href="../pages/locales.html">LOCALES</a>
+                <a class="body__header__navegador__contenedor__item" href="../pages/contacto.html">CONTACTO</a>
+                <a class="body__header__navegador__contenedor__item" href="../pages/franquicias.html">FRANQUICIAS</a>
+            </div>          
+        </nav>          
     </header>
-
-    <nav class="navegador">
-        <div class="navegador__contenedor">
-            <a class="navegador__contenedor__item" href="../index.html">HOME</a>
-            <a class="navegador__contenedor__item" href="./menu.html">MENU</a>
-            <a class="navegador__contenedor__item" href="./nosotros.html">NOSOTROS</a>
-            <a class="navegador__contenedor__item" href="./locales.html">LOCALES</a>
-            <a class="navegador__contenedor__item" href="./contacto.html">CONTACTO</a>
-            <a class="navegador__contenedor__item" href="./franquicias.html">FRANQUICIAS</a>
-        </div>          
-    </nav>
 
     <section>
         <img class="imagenNosotros" src="../images/nosotros.webp" alt="Linea de tiempo acerca de la historia de Trápani">
     </section>
+
     <img class="newsletter" src="../images/newsletter.webp" alt="Suscribite a las promociones">
-    <footer class="footer">
-        <fieldset class="footer__fieldset">
-            <aside class="footer__fieldset__redes">
-                <a href="https://www.facebook.com/HeladosTrapani" target="_blank"><img src="../images/fb_footer.webp" alt="Facebook"></a>    
-                <a href="https://www.instagram.com/heladostrapani/" target="_blank"><img src="../images/ig_footer.webp" alt="Instagram"></a>
-                <a href="https://twitter.com/HeladosTrapani" target="_blank"><img class="footer__fieldset__redes__twitter" src="../images/tw_footer.webp" alt="Twitter"></a> 
-            </aside>
-            <span class="footer__fieldset__span">
+
+    <footer class="body__footer"><!-- Ya tiene flexbox -->
+        <div class="body__footer__contenedor">
+            <span class="body__footer__contenedor__span">
                 <h3>DELIVERY</h3>
-                <ul class="footer__fieldset__span__lista">
+                <ul class="body__footer__contenedor__span__lista">
                     <li>02346-434880 - Chivilcoy</li>
                     <li>02227-424234- Lobos</li>
                     <li>011- 3578-3051 - J.L.Suárez</li>
                     <li>02345-462100 - 25 de Mayo</li>
                     <li>02324-434436 - Mercedes</li>
                 </ul>
-                <ul class="footer__fieldset__span__lista--sinimagen">
-                    <li><a href="https://twitter.com/HeladosTrapani"><img class="wpp" src="../images/whatsapp.png" alt="Whatsapp"></a></li>
-                    <li><a href="https://twitter.com/HeladosTrapani"><img class="wpp" src="../images/whatsapp.png" alt="Whatsapp"></a></li>
-                    <li><a href="https://twitter.com/HeladosTrapani"><img class="wpp" src="../images/whatsapp.png" alt="Whatsapp"></a></li>
-                    <li><a href="https://twitter.com/HeladosTrapani"><img class="wpp" src="../images/whatsapp.png" alt="Whatsapp"></a></li>
-                    <li><a href="https://wa.me/5492324530307"><img class="wpp" src="../images/whatsapp.png" alt="Whatsapp"></a></li>
-                </ul> 
+                <div class="body__footer__contenedor__span__lista--sinimagen">
+                    <a href="https://wa.me/5492324530307"><img class="wpp__imagen" src="../images/whatsapp.png" alt="Whatsapp"></a>
+                    <a href="https://wa.me/5492324530307"><img class="wpp__imagen" src="../images/whatsapp.png" alt="Whatsapp"></a>
+                    <a href="https://wa.me/5492324530307"><img class="wpp__imagen" src="../images/whatsapp.png" alt="Whatsapp"></a>
+                    <a href="https://wa.me/5492324530307"><img class="wpp__imagen" src="../images/whatsapp.png" alt="Whatsapp"></a>
+                    <a href="https://wa.me/5492324530307"><img class="wpp__imagen" src="../images/whatsapp.png" alt="Whatsapp"></a>
+                </div>
             </span>   
-        </fieldset>
+            <aside class="body__footer__contenedor__redes">
+                <a href="https://www.facebook.com/HeladosTrapani" target="_blank"><img src="../images/fb_footer.webp" alt="Facebook"></a>    
+                <a href="https://www.instagram.com/heladostrapani/" target="_blank"><img src="../images/ig_footer.webp" alt="Instagram"></a>
+                <a href="https://twitter.com/HeladosTrapani" target="_blank"><img class="body__footer__contenedor__redes__twitter" src="../images/tw_footer.webp" alt="Twitter"></a> 
+            </aside>
+        </div>
     </footer>
 </body>
 </html>
