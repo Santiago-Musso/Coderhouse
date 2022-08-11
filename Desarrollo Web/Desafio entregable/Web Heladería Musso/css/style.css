@@ -21,6 +21,8 @@
 }
     /* HEADER */
 .body__header{
+    z-index: 1000;
+    grid-area: header;
     background-color: #fff;
     position: sticky;
     top: 0;
@@ -39,6 +41,9 @@
     list-style-type: none;
 }
     /* FOOTER */
+.body__footer{
+    grid-area: footer;
+}
 .body__footer__contenedor{
     display: flex;
     flex-direction: row;
@@ -75,52 +80,75 @@
     vertical-align: middle;
 }
     /* MENU */
-.menu {
+.body__menu__contenedor{
+    display: flex;
+    flex-direction: column;
+}
+.body__menu__contenedor__seccion{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 250px;
+}
+.body__menu__contenedor__seccion__imagen{
+    box-sizing: border-box;
+    padding: 0 3rem;
+}
+.body__menu {
     max-width: 1000px;
     margin: auto;
     font-family: 'Ibarra Real Nova', serif;
+    background-color: #FFD9B3;
 }
-.menu h1{
+.body__menu h1{
     text-align: center;
 }
-.menu h4{
+.body__menu h4{
     text-align: center;
 }
-.menu__helados__bombones {
+.body__menu__helados__bombones {
     text-align: center;
     width: 100%;
 }
-.section{
-    margin: auto;
+/* INDEX */
+.body__section  {
+    grid-area: section;
 }
-.section__imagen{
-    width: 100%;
+.body__section__index{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.section h1{
+.body__section__index__contenedor{
     position: absolute;
-    top: 300px;
-    left: 36%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 10rem;
+}
+.body__section__index__imagen{
+    width: 100%;
+}
+.body__section__index__contenedor h1{
     color: #000;
     background-color: #fff;
     font-family: 'Ibarra Real Nova', serif;
     font-size: 30px;
 }
-.section a {
+.body__section__index__contenedor a {
     text-decoration: none;
     color: #fff;
     text-align: center;
     font-family: 'Ibarra Real Nova', serif;
 }
-.section a span{
-    position: absolute;
+.body__section__index__contenedor a span{
     background-color: #000;
     border: #fff solid;
     padding: 1.5rem;
-    top: 400px;
-    left: 43%;
     transition: 0.7s;
 }
-.section a span:hover{
+.body__section__index__contenedor a span:hover{
     background-color: #ff00ff;
 }
 .imagenNosotros{
@@ -239,5 +267,13 @@
 
 /* GRID */
 .body {
+    display: grid;
+    grid-template-rows: auto; 
+    grid-template-columns: 100%;
+    grid-template-areas:"header"
+                        "section"
+                        "footer";
     min-width: 900px;
+    margin: 0;
+    padding: 0;
 }
