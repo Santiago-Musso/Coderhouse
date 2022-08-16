@@ -11,7 +11,9 @@
 <body class="body">
     <header class="body__header"><!-- Ya tiene flexbox -->
         <div class="body__header__contenedor">
-            <img src="../images/contacto.webp">
+            <ul>
+                <img src="../images/contacto.webp">
+            </ul>
             <ul>
                 <li>02346-434880 - Chivilcoy</li>
                 <li>02227-424234- Lobos</li>
@@ -29,29 +31,39 @@
                 <li>Av. 29 Esq. Calle 22 - Mercedes</li>
                 <li>Marengo 4424 - V.Ballester</li>
             </ul>
-            <img src="../images/ubicacion.webp">
+            <ul>
+                <img src="../images/ubicacion.webp">   
+            </ul>
+            
         </div>
         <nav class="body__header__navegador"><!-- Ya tiene flexbox -->
-            <div class="body__header__navegador__contenedor">
-                <a class="body__header__navegador__contenedor__item" href="../index.html">HOME</a>
-                <a class="body__header__navegador__contenedor__item" href="../pages/menu.html">MENU</a>
-                <a class="body__header__navegador__contenedor__item" href="../pages/nosotros.html">NOSOTROS</a>
-                <a class="body__header__navegador__contenedor__item" href="../pages/locales.html">LOCALES</a>
-                <a class="body__header__navegador__contenedor__item" href="../pages/contacto.html">CONTACTO</a>
-                <a class="body__header__navegador__contenedor__item" href="../pages/franquicias.html">FRANQUICIAS</a>
-            </div>          
+        <label for="nav-mobile" class="body__header__navegador--mobile"><i class="fa-solid fa-bars"></i></label>
+        <input type="checkbox" id="nav-mobile">     
+        </div>
+        <div class="body__header__navegador__contenedor">
+            <a class="body__header__navegador__contenedor__item" href="../index.html">HOME</a>
+            <a class="body__header__navegador__contenedor__item" href="../pages/menu.html">MENU</a>
+            <a class="body__header__navegador__contenedor__item" href="../pages/nosotros.html">NOSOTROS</a>
+            <a class="body__header__navegador__contenedor__item" href="../pages/locales.html">LOCALES</a>
+            <a class="body__header__navegador__contenedor__item" href="../pages/contacto.html">CONTACTO</a>
+            <a class="body__header__navegador__contenedor__item" href="../pages/franquicias.html">FRANQUICIAS</a>
+        </div>          
+
         </nav>          
     </header>
 
-    <section class="body__menu">
+    <section class="body__menu"> <!-- Ya tiene flexbox -->
         <article class="body__menu__contenedor">
             <div class="body__menu__contenedor__seccion">
                 <div class="body__menu__contenedor__seccion__imagen">
                     <img class="body__menu__helados__contenedor__img" src="../images/gustos_crema.webp" alt="Helados de crema">
                 </div>
-                <div>
-                    <h1>HELADOS</h1>
-                    <h2>NUESTROS GUSTOS</h2>
+                <h1 class="body__menu__helados__contenedor__img--oculto">HELADOS</h1>
+                <h2 class="body__menu__helados__contenedor__img--oculto">NUESTROS GUSTOS</h2>
+                <img class="body__menu__helados__contenedor__img--oculto" src="../images/gustos_crema.webp" alt="Helados de crema">
+                <div class="body__menu__contenedor__seccion__contenido">
+                    <h1 class="body__menu__helados__contenedor__img">HELADOS</h1>
+                    <h2 class="body__menu__helados__contenedor__img">NUESTROS GUSTOS</h2>
                     <h3>CREMAS</h3>
                     <ul>
                         <li>Crema Americana</li>
@@ -83,7 +95,7 @@
                 <div class="body__menu__contenedor__seccion__imagen">
                     <img src="../images/gustos_chocolates.webp" alt="Helados de chocolate">
                 </div>
-                <div>
+                <div class="body__menu__contenedor__seccion__contenido">
                     <h3>CHOCOLATES</h3>
                     <ul>
                         <li>Chocolate</li>
@@ -104,7 +116,7 @@
                 <div class="body__menu__contenedor__seccion__imagen">
                     <img src="../images/gustos_dulces.webp" alt="Helados de dulce de leche">
                 </div>
-                <div>
+                <div class="body__menu__contenedor__seccion__contenido">
                     <h3>DULCES</h3>
                     <ul>
                         <li>Dulce de Leche</li>
@@ -121,7 +133,7 @@
                 <div class="body__menu__contenedor__seccion__imagen">
                     <img src="../images/gustos_frutas.webp" alt="Helados de frutas">
                 </div>
-                <div>
+                <div class="body__menu__contenedor__seccion__contenido">
                     <h3>FRUTAS</h3>   
                     <ul>
                         <li>Limón</li>
@@ -136,7 +148,7 @@
                 <div class="body__menu__contenedor__seccion__imagen">
                     <img src="../images/palitos_clasicos.webp" alt="Palitos clásicos">
                 </div>
-                <div>
+                <div class="body__menu__contenedor__seccion__contenido">
                     <h2>PALITOS</h2>
                     <h3>CLÁSICOS</h3>
                     <ul>
@@ -153,7 +165,7 @@
                 <div class="body__menu__contenedor__seccion__imagen">
                     <img src="../images/palitos_rellenos.webp" alt="Palitos rellenos">
                 </div>
-                <div>
+                <div class="body__menu__contenedor__seccion__contenido">
                     <h3>RELLENOS</h3>
                     <ul>
                         <li>Super dulce de leche</li>
@@ -166,7 +178,7 @@
                 <div class="body__menu__contenedor__seccion__imagen">
                     <img src="../images/palitos_especiales.webp" alt="Palitos rellenos">
                 </div>
-                <div>
+                <div class="body__menu__contenedor__seccion__contenido">
                     <h3>ESPECIALES</h3>
                     <ul>
                         <li>Crocante</li>
@@ -354,5 +366,6 @@
             </aside>
         </div>
     </footer>
+    <script src="https://kit.fontawesome.com/494063b862.js" crossorigin="anonymous"></script>
 </body>
 </html>

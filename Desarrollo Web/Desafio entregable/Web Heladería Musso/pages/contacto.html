@@ -11,7 +11,9 @@
 <body class="body">
     <header class="body__header"><!-- Ya tiene flexbox -->
         <div class="body__header__contenedor">
-            <img src="../images/contacto.webp">
+            <ul>
+                <img src="../images/contacto.webp">
+            </ul>
             <ul>
                 <li>02346-434880 - Chivilcoy</li>
                 <li>02227-424234- Lobos</li>
@@ -29,41 +31,48 @@
                 <li>Av. 29 Esq. Calle 22 - Mercedes</li>
                 <li>Marengo 4424 - V.Ballester</li>
             </ul>
-            <img src="../images/ubicacion.webp">
+            <ul>
+                <img src="../images/ubicacion.webp">   
+            </ul>
+            
         </div>
         <nav class="body__header__navegador"><!-- Ya tiene flexbox -->
-            <div class="body__header__navegador__contenedor">
-                <a class="body__header__navegador__contenedor__item" href="../index.html">HOME</a>
-                <a class="body__header__navegador__contenedor__item" href="../pages/menu.html">MENU</a>
-                <a class="body__header__navegador__contenedor__item" href="../pages/nosotros.html">NOSOTROS</a>
-                <a class="body__header__navegador__contenedor__item" href="../pages/locales.html">LOCALES</a>
-                <a class="body__header__navegador__contenedor__item" href="../pages/contacto.html">CONTACTO</a>
-                <a class="body__header__navegador__contenedor__item" href="../pages/franquicias.html">FRANQUICIAS</a>
-            </div>          
+        <label for="nav-mobile" class="body__header__navegador--mobile"><i class="fa-solid fa-bars"></i></label>
+        <input type="checkbox" id="nav-mobile">     
+        </div>
+        <div class="body__header__navegador__contenedor">
+            <a class="body__header__navegador__contenedor__item" href="../index.html">HOME</a>
+            <a class="body__header__navegador__contenedor__item" href="../pages/menu.html">MENU</a>
+            <a class="body__header__navegador__contenedor__item" href="../pages/nosotros.html">NOSOTROS</a>
+            <a class="body__header__navegador__contenedor__item" href="../pages/locales.html">LOCALES</a>
+            <a class="body__header__navegador__contenedor__item" href="../pages/contacto.html">CONTACTO</a>
+            <a class="body__header__navegador__contenedor__item" href="../pages/franquicias.html">FRANQUICIAS</a>
+        </div>          
+
         </nav>          
     </header>
 
-    <section>
-        <form class="formulario">
+    <section class="section"> <!-- Ya tiene flexbox -->
+        <form class="section__formulario"> 
             <fieldset>
                 <legend>Ingrese los siguientes Datos</legend>
-                <div class="formulario__contenedor">
+                <div class="section__formulario__contenedor">
                     <label for="nombre">Nombre: </label>
                     <input id="nombre" type="text" required>
                 </div>
-                <div class="formulario__contenedor">
+                <div class="section__formulario__contenedor">
                     <label for="apellido">Apellido: </label>
                     <input id="apellido" type="text" required>                
                 </div>
-                <div class="formulario__contenedor">
+                <div class="section__formulario__contenedor">
                     <label for="telefono">Telefono: </label>
                     <input id="telefono" type="number" required>                
                 </div>
-                <div class="formulario__contenedor">
+                <div class="section__formulario__contenedor">
                     <label for="email">Email: </label>
                     <input id="email" type="email" required>                
                 </div>
-                <div class="formulario__contenedor">
+                <div class="section__formulario__contenedor">
                     <label for="prov">Indique Provincia: </label>
                     <select name="provincia" id="prov">
                         <option value="Caba">Capital Federal</option>
@@ -92,16 +101,16 @@
                         <option value="Tucuman">Tucuman</option>
                     </select>
                 </div>
-                <div class="formulario__contenedor formulario__contenedor--block">
+                <div class="section__formulario__contenedor">
                     <label for="comentario">Comentario: </label>
                     <textarea class="formulario__contenedor__texto" id="comentario" required style="resize: none;"></textarea>
                 </div>
-                <div class="formulario__contenedor">
+                <div class="section__formulario__contenedor section__formulario__contenedor--row">
                     <label for="contacto">Medio de contacto preferido: </label>
                     <input type="radio" name="contacto" required>Email
                     <input type="radio" name="contacto" required>Telefono
                 </div>
-                <div class="formulario__contenedor--derecha">
+                <div class="section__formulario__contenedor--derecha">
                     <input type="button" value="Enviar">
                 </div>            
             </fieldset>
@@ -136,5 +145,6 @@
             </aside>
         </div>
     </footer>
+    <script src="https://kit.fontawesome.com/494063b862.js" crossorigin="anonymous"></script>
 </body>
 </html>

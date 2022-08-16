@@ -11,7 +11,9 @@
 <body class="body">
     <header class="body__header"><!-- Ya tiene flexbox -->
         <div class="body__header__contenedor">
-            <img src="../images/contacto.webp">
+            <ul>
+                <img src="../images/contacto.webp">
+            </ul>
             <ul>
                 <li>02346-434880 - Chivilcoy</li>
                 <li>02227-424234- Lobos</li>
@@ -29,21 +31,28 @@
                 <li>Av. 29 Esq. Calle 22 - Mercedes</li>
                 <li>Marengo 4424 - V.Ballester</li>
             </ul>
-            <img src="../images/ubicacion.webp">
+            <ul>
+                <img src="../images/ubicacion.webp">   
+            </ul>
+            
         </div>
         <nav class="body__header__navegador"><!-- Ya tiene flexbox -->
-            <div class="body__header__navegador__contenedor">
-                <a class="body__header__navegador__contenedor__item" href="../index.html">HOME</a>
-                <a class="body__header__navegador__contenedor__item" href="../pages/menu.html">MENU</a>
-                <a class="body__header__navegador__contenedor__item" href="../pages/nosotros.html">NOSOTROS</a>
-                <a class="body__header__navegador__contenedor__item" href="../pages/locales.html">LOCALES</a>
-                <a class="body__header__navegador__contenedor__item" href="../pages/contacto.html">CONTACTO</a>
-                <a class="body__header__navegador__contenedor__item" href="../pages/franquicias.html">FRANQUICIAS</a>
-            </div>          
+        <label for="nav-mobile" class="body__header__navegador--mobile"><i class="fa-solid fa-bars"></i></label>
+        <input type="checkbox" id="nav-mobile">     
+        </div>
+        <div class="body__header__navegador__contenedor">
+            <a class="body__header__navegador__contenedor__item" href="../index.html">HOME</a>
+            <a class="body__header__navegador__contenedor__item" href="../pages/menu.html">MENU</a>
+            <a class="body__header__navegador__contenedor__item" href="../pages/nosotros.html">NOSOTROS</a>
+            <a class="body__header__navegador__contenedor__item" href="../pages/locales.html">LOCALES</a>
+            <a class="body__header__navegador__contenedor__item" href="../pages/contacto.html">CONTACTO</a>
+            <a class="body__header__navegador__contenedor__item" href="../pages/franquicias.html">FRANQUICIAS</a>
+        </div>          
+
         </nav>          
     </header>
 
-    <section class="sectionlocales">
+    <section class="sectionlocales"><!-- Ya tiene flexbox -->
         <div class="sectionlocales__contenedor">
             <span class="sectionlocales__contenedor__card">
                 <input type="checkbox" id="mercedes">
@@ -66,6 +75,8 @@
                     <span class="sectionlocales__contenedor__card sectionlocales__contenedor__card--oculto">25 de Mayo 31 <br> 02227-424234</span>
                 </label>
             </span>
+        </div>
+        <div class="sectionlocales__contenedor">
             <span class="sectionlocales__contenedor__card">
                 <input type="checkbox" id="suarez">
                 <label for="suarez">
@@ -118,5 +129,6 @@
             </aside>
         </div>
     </footer>
+    <script src="https://kit.fontawesome.com/494063b862.js" crossorigin="anonymous"></script>
 </body>
 </html>
