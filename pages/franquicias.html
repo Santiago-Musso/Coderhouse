@@ -7,14 +7,15 @@
     <title>Franquicias || Trápani</title>
     <link rel="icon" href="../images/favicon.jpg">
     <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
-<body class="body">
-    <header class="body__header"><!-- Ya tiene flexbox -->
-        <div class="body__header__contenedor">
-            <ul>
+<body class="container-fluid text-center">
+    <header class="row sticky-top">
+        <div class="d-flex justify-content-center align-items-center bg-white">
+            <ul class="d-none d-sm-block">
                 <img src="../images/contacto.webp">
             </ul>
-            <ul>
+            <ul class="d-none d-lg-block">
                 <li>02346-434880 - Chivilcoy</li>
                 <li>02227-424234- Lobos</li>
                 <li>011- 3578-3051 - J.L.Suárez</li>
@@ -23,7 +24,7 @@
                 <li>011 4840-3072 - V.Ballester</li>
             </ul>
             <a href="../index.html"><img src="../images/logoheader.webp"></a>
-            <ul>
+            <ul class="d-none d-lg-block">
                 <li>Av. Sarmiento 61 - Chivilcoy</li>
                 <li>25 de Mayo 31 - Lobos</li>
                 <li>Av. Márquez 2400 - J.L.Suárez</li>
@@ -31,24 +32,26 @@
                 <li>Av. 29 Esq. Calle 22 - Mercedes</li>
                 <li>Marengo 4424 - V.Ballester</li>
             </ul>
-            <ul>
+            <ul class="d-none d-sm-block">
                 <img src="../images/ubicacion.webp">   
             </ul>
-            
         </div>
-        <nav class="body__header__navegador"><!-- Ya tiene flexbox -->
-        <label for="nav-mobile" class="body__header__navegador--mobile"><i class="fa-solid fa-bars"></i></label>
-        <input type="checkbox" id="nav-mobile">     
-        </div>
-        <div class="body__header__navegador__contenedor">
-            <a class="body__header__navegador__contenedor__item" href="../index.html">HOME</a>
-            <a class="body__header__navegador__contenedor__item" href="../pages/menu.html">MENU</a>
-            <a class="body__header__navegador__contenedor__item" href="../pages/nosotros.html">NOSOTROS</a>
-            <a class="body__header__navegador__contenedor__item" href="../pages/locales.html">LOCALES</a>
-            <a class="body__header__navegador__contenedor__item" href="../pages/contacto.html">CONTACTO</a>
-            <a class="body__header__navegador__contenedor__item" href="../pages/franquicias.html">FRANQUICIAS</a>
-        </div>          
-
+        
+        <nav class="navbar bg-marron">
+            <div class="container-fluid">
+                <input class="form-check-input" type="checkbox" id="flexCheckDefault">
+                <label class="form-check-label d-md-none" for="flexCheckDefault">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+                <div class="container-fluid bg-marron d-none flex-column justify-content-around d-md-block navegadorMobile">
+                    <a class="navbar-brand p-1" href="../index.html">HOME</a>
+                    <a class="navbar-brand p-1" href="../pages/menu.html">MENU</a>
+                    <a class="navbar-brand p-1" href="../pages/nosotros.html">NOSOTROS</a>
+                    <a class="navbar-brand p-1" href="../pages/locales.html">LOCALES</a>
+                    <a class="navbar-brand p-1" href="../pages/contacto.html">CONTACTO</a>
+                    <a class="navbar-brand p-1" href="../pages/franquicias.html">FRANQUICIAS</a>
+                </div>
+            </div>          
         </nav>          
     </header>
 
@@ -115,35 +118,40 @@
         </div>
     </section>
 
-    <img class="newsletter" src="../images/newsletter.webp" alt="Suscribite a las promociones">
-
-    <footer class="body__footer"><!-- Ya tiene flexbox -->
-        <div class="body__footer__contenedor">
-            <span class="body__footer__contenedor__span">
-                <h3>DELIVERY</h3>
-                <ul class="body__footer__contenedor__span__lista">
-                    <li>02346-434880 - Chivilcoy</li>
-                    <li>02227-424234- Lobos</li>
-                    <li>011- 3578-3051 - J.L.Suárez</li>
-                    <li>02345-462100 - 25 de Mayo</li>
-                    <li>02324-434436 - Mercedes</li>
-                </ul>
-                <div class="body__footer__contenedor__span__lista--sinimagen">
-                    <a href="https://wa.me/5492324530307"><img class="wpp__imagen" src="../images/whatsapp.png" alt="Whatsapp"></a>
-                    <a href="https://wa.me/5492324530307"><img class="wpp__imagen" src="../images/whatsapp.png" alt="Whatsapp"></a>
-                    <a href="https://wa.me/5492324530307"><img class="wpp__imagen" src="../images/whatsapp.png" alt="Whatsapp"></a>
-                    <a href="https://wa.me/5492324530307"><img class="wpp__imagen" src="../images/whatsapp.png" alt="Whatsapp"></a>
-                    <a href="https://wa.me/5492324530307"><img class="wpp__imagen" src="../images/whatsapp.png" alt="Whatsapp"></a>
+    <footer class="row ">
+        <div class="container-fluid d-flex justify-content-center align-items-center bg-marron ">
+            <div class="card d-none d-md-block">
+                <div class="card-header">
+                    DELIVERY
                 </div>
-            </span>   
-            <aside class="body__footer__contenedor__redes">
-                <a href="https://www.facebook.com/HeladosTrapani" target="_blank"><img src="../images/fb_footer.webp" alt="Facebook"></a>    
-                <a href="https://www.instagram.com/heladostrapani/" target="_blank"><img src="../images/ig_footer.webp" alt="Instagram"></a>
-                <a href="https://twitter.com/HeladosTrapani" target="_blank"><img class="body__footer__contenedor__redes__twitter" src="../images/tw_footer.webp" alt="Twitter"></a> 
-            </aside>
+                <div class="card-body d-flex ">
+                    <ul>
+                        <li>02346-434880 - Chivilcoy</li>
+                        <li>02227-424234- Lobos</li>
+                        <li>011- 3578-3051 - J.L.Suárez</li>
+                        <li>02345-462100 - 25 de Mayo</li>
+                        <li>02324-434436 - Mercedes</li>
+                    </ul>
+                    <div class="d-flex flex-column">
+                        <a href="https://wa.me/5492324530307"><img class="wpp__imagen" src="../images/whatsapp.png" alt="Whatsapp"></a>
+                        <a href="https://wa.me/5492324530307"><img class="wpp__imagen" src="../images/whatsapp.png" alt="Whatsapp"></a>
+                        <a href="https://wa.me/5492324530307"><img class="wpp__imagen" src="../images/whatsapp.png" alt="Whatsapp"></a>
+                        <a href="https://wa.me/5492324530307"><img class="wpp__imagen" src="../images/whatsapp.png" alt="Whatsapp"></a>
+                        <a href="https://wa.me/5492324530307"><img class="wpp__imagen" src="../images/whatsapp.png" alt="Whatsapp"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">   
+                <div class="card-body">
+                    <a href="https://www.facebook.com/HeladosTrapani" target="_blank"><img src="../images/fb_footer.webp" alt="Facebook" class="p-3"></a>    
+                    <a href="https://www.instagram.com/heladostrapani/" target="_blank"><img src="../images/ig_footer.webp" alt="Instagram" class="p-3"></a>
+                    <a href="https://twitter.com/HeladosTrapani" target="_blank"><img src="../images/tw_footer.webp" alt="Twitter" class="p-3"></a> 
+                </div>
+            </div>
         </div>
     </footer>
-    <script src="https://kit.fontawesome.com/494063b862.js" crossorigin="anonymous"></script>   
-
+    
+    <script src="https://kit.fontawesome.com/494063b862.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>  
 </body>
 </html>

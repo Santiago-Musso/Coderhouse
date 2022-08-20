@@ -1,3 +1,7 @@
+*{
+    margin: 0 !important;
+    padding: 0 !important;  
+}
 ul {
     list-style: none;
 }
@@ -10,14 +14,11 @@ ul {
 .bg-marron{
     background-color: rgba(209,176,146);
 }
-.imagenIndex{
-    height: 500px;
-    width: 90vw;
-    box-sizing: border-box;
-}
 #flexCheckDefault:checked~.navegadorMobile{
-    display: flex;
-    background: #fff;
-    width: 100vw;
-    top: calc(100vh - 89);
+    display: flex !important;
+    position: absolute;
+    top: 24px !important; 
+    background: rgba(209,176,146);
+    width: 100%;
+    height: calc(100vh - 89px - 24px);    
 }

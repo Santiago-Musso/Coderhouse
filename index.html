@@ -41,42 +41,43 @@
         </div>
         
         <nav class="navbar bg-marron">
-            <div class="form-check container bg-marron d-md-none d-lg-none d-xl-none d-xxl-none">
+            <div class="container-fluid">
                 <input class="form-check-input" type="checkbox" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
+                <label class="form-check-label d-md-none" for="flexCheckDefault">
                     <i class="fa-solid fa-bars"></i>
                 </label>
-            </div>
-            <div class="container-fluid bg-marron flex-column justify-content-center d-md-block navegadorMobile">
-                <a class="navbar-brand" href="./index.html">HOME</a>
-                <a class="navbar-brand" href="./pages/menu.html">MENU</a>
-                <a class="navbar-brand" href="./pages/nosotros.html">NOSOTROS</a>
-                <a class="navbar-brand" href="./pages/locales.html">LOCALES</a>
-                <a class="navbar-brand" href="./pages/contacto.html">CONTACTO</a>
-                <a class="navbar-brand" href="./pages/franquicias.html">FRANQUICIAS</a>
+                <div class="container-fluid bg-marron d-none flex-column justify-content-around d-md-block navegadorMobile">
+                    <a class="navbar-brand p-1" href="./index.html">HOME</a>
+                    <a class="navbar-brand p-1" href="./pages/menu.html">MENU</a>
+                    <a class="navbar-brand p-1" href="./pages/nosotros.html">NOSOTROS</a>
+                    <a class="navbar-brand p-1" href="./pages/locales.html">LOCALES</a>
+                    <a class="navbar-brand p-1" href="./pages/contacto.html">CONTACTO</a>
+                    <a class="navbar-brand p-1" href="./pages/franquicias.html">FRANQUICIAS</a>
+                </div>
             </div>          
         </nav>          
     </header>
     
     <section class="row">
         <div class="container-fluid">
-            <img src="./images/fondo_index.webp" alt="Palitos de agua" class="imagenIndex">
-            <div class="position-absolute top-50 start-50 translate-middle text-white">
-                <h1 class="bg-dark">HACENOS TU PEDIDO ONLINE</h1>
-                <a class="btn btn-dark" href="https://linktr.ee/HeladosTrapani" role="button">PEDIDOS ONLINE</a>
+            <img src="./images/fondo_index.webp" alt="Palitos de agua" class="img-fluid">
+            <div class="bg-marron">
+                <h1 class="bg-marron p-2">HACENOS TU PEDIDO ONLINE</h1>
+                <a class="btn bg-dark text-white p-2" href="https://linktr.ee/HeladosTrapani" role="button">PEDIDOS ONLINE</a>
             </div>       
+            <img src="./images/fondo_index.webp" alt="Palitos de agua" class="img-fluid">
         </div>
     </section>
 
 <!--     <img class="newsletter" src="./images/newsletter.webp" alt="Suscribite a las promociones"> -->
 
     <footer class="row ">
-        <div class="container-fluid d-flex align-items-center bg-marron ">
-            <div class="card">
+        <div class="container-fluid d-flex justify-content-center align-items-center bg-marron ">
+            <div class="card d-none d-md-block">
                 <div class="card-header">
                     DELIVERY
                 </div>
-                <div class="card-body d-flex">
+                <div class="card-body d-flex ">
                     <ul>
                         <li>02346-434880 - Chivilcoy</li>
                         <li>02227-424234- Lobos</li>
@@ -95,9 +96,9 @@
             </div>
             <div class="card">   
                 <div class="card-body">
-                    <a href="https://www.facebook.com/HeladosTrapani" target="_blank"><img src="./images/fb_footer.webp" alt="Facebook"></a>    
-                    <a href="https://www.instagram.com/heladostrapani/" target="_blank"><img src="./images/ig_footer.webp" alt="Instagram"></a>
-                    <a href="https://twitter.com/HeladosTrapani" target="_blank"><img src="./images/tw_footer.webp" alt="Twitter"></a> 
+                    <a href="https://www.facebook.com/HeladosTrapani" target="_blank"><img src="./images/fb_footer.webp" alt="Facebook" class="p-3"></a>    
+                    <a href="https://www.instagram.com/heladostrapani/" target="_blank"><img src="./images/ig_footer.webp" alt="Instagram" class="p-3"></a>
+                    <a href="https://twitter.com/HeladosTrapani" target="_blank"><img src="./images/tw_footer.webp" alt="Twitter" class="p-3"></a> 
                 </div>
             </div>
         </div>
