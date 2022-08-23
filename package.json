@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Santiago-Musso/Coderhouse/issues"
   },
-  "homepage": "https://github.com/Santiago-Musso/Coderhouse#readme"
+  "homepage": "https://github.com/Santiago-Musso/Coderhouse#readme",
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
 }
