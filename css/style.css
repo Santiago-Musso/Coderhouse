@@ -12,7 +12,7 @@ ul {
     display: none;
 }
 .bg-marron{
-    background-color: rgba(209,176,146);
+    background-color: rgba(209,176,146) !important;
 }
 #flexCheckDefault:checked~.navegadorMobile{
     display: flex !important;
@@ -21,4 +21,8 @@ ul {
     background: rgba(209,176,146);
     width: 100%;
     height: calc(100vh - 89px - 24px);    
+}
+.imagenFranquicia{
+    width: 300px !important;
+    height: 224px !important;
 }
