@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin || Trápani</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body class="container">
+    <div class="input-group m-2">
+        <input type="text" class="form-control" placeholder="Nombre producto" id="nombreNuevoProducto">       
+    </div>
+    <div class="input-group m-2">
+        <input type="text" class="form-control" placeholder="Categoria" id="categoriaNuevoProducto">
+    </div>
+    <div class="input-group m-2">
+        <input type="number" class="form-control" placeholder="Precio" id="precioNuevoProducto">
+    </div>
+    <div class="input-group m-2">
+        <input type="number" class="form-control" placeholder="Stock" id="stockNuevoProducto">
+    </div>
+    <div class="input-group m-2">
+        <input type="text" class="form-control" placeholder="URL Imagen" id="imagenNuevoProducto">
+    </div>
+    <div class="input-group m-2">
+        <span class="input-group-text">Codigo:</span>
+        <input type="number" class="form-control" id="codigoNuevoProducto" disabled>
+    </div>
+    <div class="input-group m-2">
+        <button type="button" class="btn btn-success" id="agregarNuevoProducto">Agregar</button>
+        <button type="button" class="btn btn-danger" id="salirAdmin">Salir</button>
+    </div>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">CODIGO</th>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">CATEGORIA</th>
+            <th scope="col">PRECIO</th>
+            <th scope="col">STOCK</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+      </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="../js/funciones.js"></script>
+    <script src="../js/admin/mainAdmin.js"></script>
+    </body>
+</html>

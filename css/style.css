@@ -1,3 +1,42 @@
+*{
+    margin: 0 !important;
+    padding: 0 !important;  
+}
+ul {
+    list-style: none;
+}
+#flexCheckDefault{
+    display: none;
+}
+.listaHeader{
+    display: none;
+}
+.bg-marron{
+    background-color: rgba(209,176,146);
+}
+#flexCheckDefault:checked~.navegadorMobile{
+    display: flex !important;
+    position: absolute;
+    top: 24px !important; 
+    background: rgba(209,176,146);
+    width: 100%;
+    height: calc(100vh - 89px - 24px);    
+}
+@keyframes animacionBackground {
+    from{
+        color: black;
+    }
+    to{
+        color: white;
+    }
+}
+.animarTitulo{
+    animation: animacionBackground 5s linear 0s infinite alternate;
+}
 .oculto {
     display: none;
+}
+.producto {
+    height: 250px;
+    width: 200px;
 }
