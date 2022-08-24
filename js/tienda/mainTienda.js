@@ -39,4 +39,4 @@ const completarProductos = () => {
     }
 }
 
-completarProductos()
+//completarProductos()

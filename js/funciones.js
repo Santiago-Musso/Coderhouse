@@ -46,7 +46,7 @@ const validarUsuario = (nombre,contraseña) => {
     for(let i = 0; i < listaUsuarios.length ; i++){
         if( nombre === listaUsuarios[i].nombre && contraseña === listaUsuarios[i].contraseña ){
             if(listaUsuarios[i].admin){
-                window.location.pathname = '/C:/Users/Santiago/Documents/GitHub/Coderhouse/pages/admin.html'
+                window.location.href = './admin.html'
                 return true
             }else{
                 return true                
