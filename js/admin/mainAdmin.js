@@ -32,7 +32,7 @@ botonAgregarProducto.onclick = () => {
 
 //Envia a la pagina tienda nuevamente
 botonSalir.onclick = () => {
-    window.location.href = './tienda.html'
+    window.location.pathname = '/C:/Users/Santiago/Documents/GitHub/Coderhouse/pages/tienda.html'
 }
 
 //Lee todos los productos que hay en la lista de articulos almacenada en el LocalStorage
