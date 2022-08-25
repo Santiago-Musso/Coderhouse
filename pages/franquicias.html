@@ -50,73 +50,77 @@
                     <a class="navbar-brand p-1" href="../pages/locales.html">LOCALES</a>
                     <a class="navbar-brand p-1" href="../pages/contacto.html">CONTACTO</a>
                     <a class="navbar-brand p-1" href="../pages/franquicias.html">FRANQUICIAS</a>
-                    <a class="navbar-brand p-1" href="../pages/tienda.html">TIENDA</a>
                 </div>
             </div>          
         </nav>          
     </header>
 
-    <section class="franquicia"><!-- Ya tiene flexbox -->
-        <div class="franquicia__contenedor--card">
-            <img src="../images/franquicia-helado.jpg" alt="Pote de helado">
-            <p class="formulario__contenedor__parrafo">
-                Con más de 30 años de experiencia, a partir de su fundación alla por el año 1986 en la ciudad de Jose León Suarez, Trápani ha logrado desarrollar un producto gourmet de excelencia en sus más de 30 variedades. Materias primas de alta calidad y un muy cuidado proceso de elaboración nos mantienen a la vanguardia en el mercado nacional.
-                Ofrecemos nuestros productos en ambientes bien logrados en estética y diseño, procurando una armonía perfecta entre ambos.Esta combinación, acompañada de una excelente atención, brinda una oportunidad única de inversión en el mercado, en donde el buen vínculo con los consumidores además de ser inmediato, invita a ser cotidiano.
-            </p>
+    <section class="row justify-content-center align-items-center">
+        <div class="card m-3 p-4 border-dark bg-marron container-lg" style="max-width: 70vw;">
+            <div class="row justify-content-center">
+              <div class="col-8 col-xl-4">
+                <img src="../images/franquicia-helado.jpg" class="card-img imagenFranquicia border border-dark img-fluid" alt="Pote de helado">
+              </div>
+              <div class="col-8 col-xl-8">
+                <div class="card-body">
+                    <p class="card-text">
+                        Con más de 30 años de experiencia, a partir de su fundación alla por el año 1986 en la ciudad de Jose León Suarez, Trápani ha logrado desarrollar un producto gourmet de excelencia en sus más de 30 variedades. Materias primas de alta calidad y un muy cuidado proceso de elaboración nos mantienen a la vanguardia en el mercado nacional.
+                        Ofrecemos nuestros productos en ambientes bien logrados en estética y diseño, procurando una armonía perfecta entre ambos.Esta combinación, acompañada de una excelente atención, brinda una oportunidad única de inversión en el mercado, en donde el buen vínculo con los consumidores además de ser inmediato, invita a ser cotidiano.
+                    </p>
+                </div>
+              </div>
+            </div>
         </div>
-        <div >
-            <fieldset id="fieldsetFranquicia">
-                <legend>FORMULARIO DE SOLICITUD</legend>
-                <div class="franquicia__contenedor">
-                    <div class="franquicia__contenedor__fila">
-                        <input class="franquicia__contenedor__fila__input" type="text" placeholder="NOMBRE*">
-                        <input class="franquicia__contenedor__fila__input" type="text" placeholder="APELLIDO*">
-                        <input class="franquicia__contenedor__fila__input" type="text" placeholder="DIRECCION*">
-                    </div>
-                    <div class="franquicia__contenedor__fila">
-                        <input class="franquicia__contenedor__fila__input" type="text" placeholder="PAIS*">
-                        <input class="franquicia__contenedor__fila__input" type="text" placeholder="LOCALIDAD*">
-                        <input class="franquicia__contenedor__fila__input" type="text" placeholder="CODIGO POSTAL*">
-                    </div>
-                    <div class="franquicia__contenedor__fila">
-                        <input class="franquicia__contenedor__fila__input" type="text" placeholder="TELEFONO*">
-                        <input class="franquicia__contenedor__fila__input" type="email" placeholder="EMAIL*">
-                        <label for="fecha_nac">F. nac.:</label>
-                        <input class="franquicia__contenedor__fila__input --ancho" id="fecha_nac" type="date">
-                    </div>
-                    <div class="franquicia__contenedor__fila1"> 
-                        <label for="conocio">CÓMO NOS CONOCIÓ? *</label>
-                        <input type="text" id="conocio" class="franquicia__contenedor__fila1__input">
-                    </div>
-                    <div class="franquicia__contenedor__fila1">
-                        <label for="experiencia">EXPERIENCIA EN EL RUBRO? *</label>
-                        <input type="text" id="experiencia" class="franquicia__contenedor__fila1__input">
-                    </div>    
-                    <div class="franquicia__contenedor__fila1">
-                        <label for="gente">CON GENTE A CARGO?*</label>
-                        <input type="text" id="gente" class="franquicia__contenedor__fila1__input">                        
-                    </div>
-                        
-                    <div class="franquicia__contenedor__fila1">
-                        <label for="ocupacion">OCUPACIÓN ACTUAL? *</label>
-                        <input type="text" id="ocupacion" class="franquicia__contenedor__fila1__input">
-                    </div>
-                    <div class="franquicia__contenedor__fila1">
-                        <label for="zona">ZONA DE LA FRANQUICIA? *</label>
-                        <input type="text" id="zona" class="franquicia__contenedor__fila1__input">
-                    </div>
-                    <div class="franquicia__contenedor__fila2">
-                        <label for="informacion">DETALLE CUALQUIER INFORMACIÓN PERSONAL O FINANCIERA QUE PUEDA AYUDAR A LA EVALUACION *</label>
-                        <textarea id="informacion" cols="100%" rows="5" style="resize: none;"></textarea>
-                    </div>
-                    <div class="franquicia__contenedor__fila2">
-                        <label for="comentario">ENVÍE SU COMENTARIO, Y SI LO DESEA, PIDA INFORMACIÓN EN PARTICULAR SOBRE ESTA FRANQUICIA.</label>
-                        <textarea id="comentario" cols="100%" rows="5" style="resize: none;"></textarea>
-                    </div>
-                    <input type="button" id="enviarForm" value="ENVIAR">
-                </div>                             
-            </fieldset>
-        </div>
+        <div class="row">
+            <form class="row justify-content-center align-items-center">
+                <div class="col-8 d-lg-flex">
+                    <input class="form-control mb-3" type="text" placeholder="NOMBRE*" required>
+                    <input class="form-control mb-3" type="text" placeholder="APELLIDO*" required>
+                    <input class="form-control mb-3" type="text" placeholder="DIRECCION*" required>
+                </div>
+                <div class="col-8 d-lg-flex">
+                    <input class="form-control mb-3" type="text" placeholder="PAIS*" required>
+                    <input class="form-control mb-3" type="text" placeholder="LOCALIDAD*" required>
+                    <input class="form-control mb-3" type="text" placeholder="CODIGO POSTAL*" required>
+                </div>
+                <div class="col-8 d-lg-flex">
+                    <input class="form-control mb-3" type="text" placeholder="TELEFONO*" required>
+                    <input class="form-control mb-3" type="email" placeholder="EMAIL*" required>
+                </div>
+                <div class="col-8 mb-3"> 
+                    <label for="conocio">CÓMO NOS CONOCIÓ? *</label>
+                    <input type="text" id="conocio" class="form-control" required>
+                </div>
+                <div class="col-8 mb-3">
+                    <label for="experiencia">EXPERIENCIA EN EL RUBRO? *</label>
+                    <input type="text" id="experiencia" class="form-control" required>
+                </div>    
+                <div class="col-8 mb-3">
+                    <label for="gente">CON GENTE A CARGO?*</label>
+                    <input type="text" id="gente" class="form-control" required>                        
+                </div>
+                    
+                <div class="col-8 mb-3">
+                    <label for="ocupacion">OCUPACIÓN ACTUAL? *</label>
+                    <input type="text" id="ocupacion" class="form-control" required>
+                </div>
+                <div class="col-8 mb-3">
+                    <label for="zona">ZONA DE LA FRANQUICIA? *</label>
+                    <input type="text" id="zona" class="form-control" required>
+                </div>
+                <div class="col-8 mb-3">
+                    <label for="informacion">DETALLE CUALQUIER INFORMACIÓN PERSONAL O FINANCIERA QUE PUEDA AYUDAR A LA EVALUACION *</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="resize: none;" required></textarea>
+                </div>
+                <div class="col-8 mb-3">
+                    <label for="comentario">ENVÍE SU COMENTARIO, Y SI LO DESEA, PIDA INFORMACIÓN EN PARTICULAR SOBRE ESTA FRANQUICIA.</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="resize: none;" required></textarea>
+                </div>
+                <div class="col-8 mb-3">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>  
+            </form>
+        </div>                             
     </section>
 
     <footer class="row ">

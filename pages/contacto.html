@@ -50,35 +50,37 @@
                     <a class="navbar-brand p-1" href="../pages/locales.html">LOCALES</a>
                     <a class="navbar-brand p-1" href="../pages/contacto.html">CONTACTO</a>
                     <a class="navbar-brand p-1" href="../pages/franquicias.html">FRANQUICIAS</a>
-                    <a class="navbar-brand p-1" href="../pages/tienda.html">TIENDA</a>
                 </div>
             </div>          
         </nav>          
     </header>
 
-    <section class="section"> <!-- Ya tiene flexbox -->
-        <form class="section__formulario"> 
-            <fieldset>
-                <legend>Ingrese los siguientes Datos</legend>
-                <div class="section__formulario__contenedor">
+    <section class="row">
+        <form class="row justify-content-center align-items-center">
+            <div class="col-8">
+                <div class="mb-3">
                     <label for="nombre">Nombre: </label>
-                    <input id="nombre" type="text" required>
+                    <input id="nombre" type="text" class="form-control" required>
                 </div>
-                <div class="section__formulario__contenedor">
+                <div class="mb-3">
                     <label for="apellido">Apellido: </label>
-                    <input id="apellido" type="text" required>                
+                    <input id="apellido" type="text" class="form-control" required>                
                 </div>
-                <div class="section__formulario__contenedor">
+            </div>
+            <div class="col-8">
+                <div class="mb-3">
                     <label for="telefono">Telefono: </label>
-                    <input id="telefono" type="number" required>                
+                    <input id="telefono" type="number" class="form-control" required>                
                 </div>
-                <div class="section__formulario__contenedor">
+                <div class="mb-3">
                     <label for="email">Email: </label>
-                    <input id="email" type="email" required>                
+                    <input id="email" type="email" class="form-control" required>                
                 </div>
-                <div class="section__formulario__contenedor">
-                    <label for="prov">Indique Provincia: </label>
-                    <select name="provincia" id="prov">
+            </div>
+            <div class="col-8">
+                <div class="mb-3">
+                    <label for="select">Indique Provincia: </label>
+                    <select name="provincia" id="select" class="form-select">
                         <option value="Caba">Capital Federal</option>
                         <option value="Buenos Aires" selected>Bs. As.</option>
                         <option value="Catamarca">Catamarca</option>
@@ -105,19 +107,21 @@
                         <option value="Tucuman">Tucuman</option>
                     </select>
                 </div>
-                <div class="section__formulario__contenedor">
-                    <label for="comentario">Comentario: </label>
-                    <textarea class="formulario__contenedor__texto" id="comentario" required style="resize: none;"></textarea>
+            </div>
+            <div class="col-8">
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Comentario</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="resize: none;"></textarea>
                 </div>
-                <div class="section__formulario__contenedor section__formulario__contenedor--row">
-                    <label for="contacto">Medio de contacto preferido: </label>
-                    <input type="radio" name="contacto" required>Email
-                    <input type="radio" name="contacto" required>Telefono
+                <div class="mb-3">
+                    <label for="flexRadioDefault1">Medio de contacto preferido: </label>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">Email
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">Telefono
                 </div>
-                <div class="section__formulario__contenedor--derecha">
-                    <input type="button" value="Enviar">
-                </div>            
-            </fieldset>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>             
+            </div>
         </form>
     </section>
 
