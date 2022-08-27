@@ -23,10 +23,40 @@ class Usuarios{
 //***************************Constantes y variables*************************
 
 const listaUsuarios = [
-    new Usuarios('admin','12345',true),
-    new Usuarios('santi','123',false)
+    new Usuarios('admin','12345',true)
 ]
-const listaArticulos = []
+ //Carga de articulos de ejemplo
+const articuloEjemplo1  = new Productos()
+articuloEjemplo1.nombre = 'Bombon Rocher'
+articuloEjemplo1.precio = 270
+articuloEjemplo1.categoria = 'bombones'
+articuloEjemplo1.stock = 15
+articuloEjemplo1.imagen = 'https://static.wixstatic.com/media/3bf84c_af26b847aee04e4ebabee76f92dca420~mv2.jpg/v1/fill/w_159,h_170,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/IMG_4271-Editar_edited.jpg'
+
+const articuloEjemplo2  = new Productos()
+articuloEjemplo2.nombre = 'Bombon Frambuesa'
+articuloEjemplo2.precio = 270
+articuloEjemplo2.categoria = 'bombones'
+articuloEjemplo2.stock = 15
+articuloEjemplo2.imagen = 'https://static.wixstatic.com/media/3bf84c_3bd0fbed83c043b7b19c8a735476b318~mv2.jpg/v1/fill/w_191,h_170,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/bombon%2520frambuesaaa-01_edited.jpg'
+
+const articuloEjemplo3  = new Productos()
+articuloEjemplo3.nombre = 'Bombon Dulce de leche'
+articuloEjemplo3.precio = 270
+articuloEjemplo3.categoria = 'bombones'
+articuloEjemplo3.stock = 15
+articuloEjemplo3.imagen = 'https://static.wixstatic.com/media/3bf84c_45ee57b0552a4fc1b6a2e5eb8fb7c292~mv2.jpg/v1/fill/w_170,h_170,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/IMG_4246-Editar_edited.jpg'
+
+
+const listaArticulos = [
+    articuloEjemplo1,
+    articuloEjemplo2,
+    articuloEjemplo3
+]
+const listaVacia = JSON.parse(localStorage.getItem('listaArticulos'))
+
+listaVacia.length === 0 ? localStorage.setItem('listaArticulos', JSON.stringify(listaArticulos)) : false
+
 
 const $divAdmin = document.getElementById('divAdmin')
 const $div = document.getElementById('div')
@@ -83,7 +113,7 @@ const borrarArticulo = (codigo) => {
     localStorage.setItem('listaArticulos',JSON.stringify(nuevaLista))
     location.reload()
 }
- //**********************Da de alta un usuario que sea nuevo************************
+/*  //**********************Da de alta un usuario que sea nuevo************************
  //Chequea que no se repita nombre de usuario y limpia los inputs
 const altaUsuario = () => {
     let usuarioRepetido = false
@@ -101,4 +131,4 @@ const altaUsuario = () => {
         nombreUsuario.value = ''
         contraseñaUsuario.value = ''
     }
-}
+} */

@@ -19,8 +19,8 @@ botonAgregarProducto.onclick = () => {
 
     nuevoProducto.nombre = nombreNuevoProducto.value
     nuevoProducto.categoria = categoriaNuevoProducto.value
-    nuevoProducto.precio = precioNuevoProducto.value
-    nuevoProducto.stock = stockNuevoProducto.value
+    nuevoProducto.precio = parseInt(precioNuevoProducto.value)
+    nuevoProducto.stock = parseInt(stockNuevoProducto.value)
     nuevoProducto.imagen = imagenNuevoProducto.value
 
     for(props in nuevoProducto){
@@ -40,41 +40,39 @@ botonSalir.onclick = () => {
 const listarProductos = () => {
     const listaProductos = JSON.parse(localStorage.getItem('listaArticulos'))
 
-    if(listaProductos != undefined){
-        for(let i = 0; i < listaProductos.length; i++){
-            const codigoProducto = document.createElement('th')
-            const nombreProducto = document.createElement('td')
-            const categoriaProducto = document.createElement('td')
-            const precioProducto = document.createElement('td')
-            const stockProducto = document.createElement('td')
-            const botonBorrar = document.createElement('td')
-            const tablaProductos = document.querySelector('table')
-            const filaProducto = document.createElement('tr')
-            const cuerpoTabla = document.createElement('tbody')
-            const borrarProducto = document.createElement('button')
-    
-            borrarProducto.className = 'btn-close'
-            borrarProducto.setAttribute('codigo',i)
-            borrarProducto.onclick = (e) => {
-                const codigoProductoABorrar = e.target.getAttribute('codigo')
-                borrarArticulo(codigoProductoABorrar)
-            }
-            codigoProducto.setAttribute('scope', 'row')
-            nombreProducto.className = 'col'
-            categoriaProducto.className = 'col'
-            precioProducto.className = 'col'
-            stockProducto.className = 'col'
+    for(let i = 0; i < listaProductos.length; i++){
+        const codigoProducto = document.createElement('th')
+        const nombreProducto = document.createElement('td')
+        const categoriaProducto = document.createElement('td')
+        const precioProducto = document.createElement('td')
+        const stockProducto = document.createElement('td')
+        const botonBorrar = document.createElement('td')
+        const tablaProductos = document.querySelector('table')
+        const filaProducto = document.createElement('tr')
+        const cuerpoTabla = document.createElement('tbody')
+        const borrarProducto = document.createElement('button')
 
-            nombreProducto.innerText = listaProductos[i].nombre
-            categoriaProducto.innerText = listaProductos[i].categoria
-            precioProducto.innerText = listaProductos[i].precio
-            stockProducto.innerText = listaProductos[i].stock
-            codigoProducto.innerText = i
-            botonBorrar.append(borrarProducto)
-            filaProducto.append(codigoProducto,nombreProducto,categoriaProducto,precioProducto,stockProducto,botonBorrar)
-            cuerpoTabla.append(filaProducto)
-            tablaProductos.append(cuerpoTabla)
+        borrarProducto.className = 'btn-close'
+        borrarProducto.setAttribute('codigo',i)
+        borrarProducto.onclick = (e) => {
+            const codigoProductoABorrar = e.target.getAttribute('codigo')
+            borrarArticulo(codigoProductoABorrar)
         }
+        codigoProducto.setAttribute('scope', 'row')
+        nombreProducto.className = 'col'
+        categoriaProducto.className = 'col'
+        precioProducto.className = 'col'
+        stockProducto.className = 'col'
+
+        nombreProducto.innerText = listaProductos[i].nombre
+        categoriaProducto.innerText = listaProductos[i].categoria
+        precioProducto.innerText = listaProductos[i].precio
+        stockProducto.innerText = listaProductos[i].stock
+        codigoProducto.innerText = i
+        botonBorrar.append(borrarProducto)
+        filaProducto.append(codigoProducto,nombreProducto,categoriaProducto,precioProducto,stockProducto,botonBorrar)
+        cuerpoTabla.append(filaProducto)
+        tablaProductos.append(cuerpoTabla)
     }
 }
 
