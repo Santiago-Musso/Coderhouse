@@ -56,7 +56,21 @@ const listarProductos = () => {
         borrarProducto.setAttribute('codigo',i)
         borrarProducto.onclick = (e) => {
             const codigoProductoABorrar = e.target.getAttribute('codigo')
-            borrarArticulo(codigoProductoABorrar)
+
+            swal({
+                title: `Estas seguro que deseas eliminar el producto ${listaProductos[codigoProductoABorrar].nombre}?`,
+                text: "Una vez borrado no hay manera de recuperarlo o deshacer esta accion.",
+                icon: "warning",
+                buttons: ['Cancelar','Aceptar'],
+                dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                    borrarArticulo(codigoProductoABorrar)
+                } else {
+                  swal("El producto todavia sigue a salvo!");
+                }
+              });
         }
         codigoProducto.setAttribute('scope', 'row')
         nombreProducto.className = 'col'
