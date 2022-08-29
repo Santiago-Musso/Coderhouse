@@ -55,7 +55,13 @@ const listaArticulos = [
 ]
 const listaVacia = JSON.parse(localStorage.getItem('listaArticulos'))
 
-listaVacia.length === 0 ? localStorage.setItem('listaArticulos', JSON.stringify(listaArticulos)) : false
+if(listaVacia === null){
+    localStorage.setItem('listaArticulos', JSON.stringify(listaArticulos))
+}else{
+    listaVacia.length === 0 ? localStorage.setItem('listaArticulos', JSON.stringify(listaArticulos)) : false
+}
+
+
 
 
 const $divAdmin = document.getElementById('divAdmin')
