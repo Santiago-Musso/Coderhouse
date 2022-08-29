@@ -15,6 +15,29 @@ botonLogin.onclick = () => {
     }
 }
 
+botonRegistro.onclick = () => {
+    const nombreUsuario = document.getElementById('nombreUsuario')
+    const contraseñaUsuario = document.getElementById('contraseñaUsuario')
+
+    swal({
+        title: `Estas seguro que desea dar de alta este usuario?`,
+        icon: "warning",
+        buttons: ['Cancelar','Aceptar'],
+        dangerMode: false,
+      })
+      .then((willDelete) => {
+        if(altaUsuario(nombreUsuario.value,contraseñaUsuario.value)){
+            swal("Usuario creado correctamente!")
+            nombreUsuario.value = ''
+            contraseñaUsuario.value = ''
+        }else{
+            if (willDelete) {
+                swal("El usuario ya se encuentra registrado");
+            }
+        }
+      });
+
+}
 //Rellena 
 const completarProductos = () => {
     const listaArticulos = JSON.parse(localStorage.getItem('listaArticulos'))

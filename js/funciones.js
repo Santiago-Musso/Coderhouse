@@ -25,6 +25,7 @@ class Usuarios{
 const listaUsuarios = [
     new Usuarios('admin','12345',true)
 ]
+
  //Carga de articulos de ejemplo
 const articuloEjemplo1  = new Productos()
 articuloEjemplo1.nombre = 'Bombon Rocher'
@@ -54,6 +55,9 @@ const listaArticulos = [
     articuloEjemplo3
 ]
 const listaVacia = JSON.parse(localStorage.getItem('listaArticulos'))
+const usuariosVacio = JSON.parse(localStorage.getItem('listaUsuarios'))
+
+usuariosVacio === null ? localStorage.setItem('listaUsuarios',JSON.stringify(listaUsuarios)) : false
 
 if(listaVacia === null){
     localStorage.setItem('listaArticulos', JSON.stringify(listaArticulos))
@@ -79,6 +83,8 @@ const contraseñaUsuario = document.getElementById('contraseña')
 // de usuarios, ademas verifica que si es admin lo envía a la pagina admin
 
 const validarUsuario = (nombre,contraseña) => {
+    const listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios'))
+
     for(let i = 0; i < listaUsuarios.length ; i++){
         if( nombre === listaUsuarios[i].nombre && contraseña === listaUsuarios[i].contraseña ){
             if(listaUsuarios[i].admin){
@@ -119,22 +125,21 @@ const borrarArticulo = (codigo) => {
     localStorage.setItem('listaArticulos',JSON.stringify(nuevaLista))
     location.reload()
 }
-/*  //**********************Da de alta un usuario que sea nuevo************************
+ //**********************Da de alta un usuario que sea nuevo************************
  //Chequea que no se repita nombre de usuario y limpia los inputs
-const altaUsuario = () => {
+const altaUsuario = (usuario,contraseña) => {
     let usuarioRepetido = false
+    const listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios'))
 
     for(let i = 0; i < listaUsuarios.length; i++){
-        if(nombreUsuario.value === listaUsuarios[i].nombre){
-            alert('El usuario ya se encuentra registrado!')
+        if(usuario === listaUsuarios[i].nombre){
             usuarioRepetido = true
-            break
+            return false
         }
     }
     if(!usuarioRepetido){
-        listaUsuarios.push(new Usuarios(nombreUsuario.value,contraseñaUsuario.value,false))
-        alert("Usuario dado de alta correctamente!")
-        nombreUsuario.value = ''
-        contraseñaUsuario.value = ''
+        listaUsuarios.push(new Usuarios(usuario,contraseña,false))
+        localStorage.setItem('listaUsuarios',JSON.stringify(listaUsuarios))
+        return true
     }
-} */
+}
