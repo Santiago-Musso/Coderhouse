@@ -39,22 +39,22 @@ botonRegistro.onclick = () => {
 
 }
 //Rellena 
-const completarProductos = () => {
-    const listaArticulos = JSON.parse(localStorage.getItem('listaArticulos'))
+const completarProductos = async () => {
+    const listaArticulos = await obtenerListaProductos()
 
     for(let i = 0; i < listaArticulos.length; i++){
         const contenedorCartas = document.querySelector('.contenedorProductos')
         const cartaProducto = document.createElement('div')
         const contenedorProducto = document.createElement('div')
-        const nombreProducto = document.createElement('h4')
-        const precioProducto = document.createElement('h4')
+        const nombreProducto = document.createElement('h6')
+        const precioProducto = document.createElement('h7')
         const imagenProducto = document.createElement('img')
 
         cartaProducto.className = "col col-lg-3 d-flex justify-content-center"
         contenedorProducto.className = "producto mb-3"
-        nombreProducto.innerText = listaArticulos[i].nombre
-        precioProducto.innerText = listaArticulos[i].precio
-        imagenProducto.setAttribute('src',listaArticulos[i].imagen)
+        nombreProducto.innerText = listaArticulos[i].producto.nombre
+        precioProducto.innerText = listaArticulos[i].producto.precio
+        imagenProducto.setAttribute('src',listaArticulos[i].producto.imagen)
 
         contenedorProducto.append(imagenProducto,nombreProducto,precioProducto)
         cartaProducto.append(contenedorProducto)
