@@ -1,9 +1,6 @@
 const botonAgregarProducto = document.getElementById('agregarNuevoProducto')
 const botonSalir = document.getElementById('salirAdmin')
-const codigoProducto = document.getElementById('codigoNuevoProducto')
-
-//Seteo el codigo de producto en base al length del array de articulos
-localStorage.getItem('listaArticulos') ? codigoProducto.value = JSON.parse(localStorage.getItem('listaArticulos')).length : codigoProducto.value = 0
+let codigoNuevoProducto
 
 
 //Agrega el producto, validando que ningun input quede vacío
@@ -27,7 +24,7 @@ botonAgregarProducto.onclick = () => {
         nuevoProducto[props] === '' ? verificarVacios = true : null
     }
 
-    verificarVacios ? alert('No ha introducido los valores correctamente') : agregarArticulo(nuevoProducto) && location.reload()
+    verificarVacios ? alert('No ha introducido los valores correctamente') : agregarArticulo(nuevoProducto,codigoNuevoProducto) && location.reload()
 }
 
 //Envia a la pagina tienda nuevamente
@@ -37,8 +34,13 @@ botonSalir.onclick = () => {
 
 //Lee todos los productos que hay en la lista de articulos almacenada en el LocalStorage
 //y los va sumando a la tabla, le agrega tambien 
-const listarProductos = () => {
-    const listaProductos = JSON.parse(localStorage.getItem('listaArticulos'))
+const listarProductos = async () => {
+    const codigoProducto = document.getElementById('codigoNuevoProducto')
+
+    const listaProductos = await obtenerListaProductos()
+
+    codigoNuevoProducto = parseInt(listaProductos[listaProductos.length-1].codigo) + 1
+    codigoProducto.value = codigoNuevoProducto
 
     for(let i = 0; i < listaProductos.length; i++){
         const codigoProducto = document.createElement('th')
@@ -56,9 +58,8 @@ const listarProductos = () => {
         borrarProducto.setAttribute('codigo',i)
         borrarProducto.onclick = (e) => {
             const codigoProductoABorrar = e.target.getAttribute('codigo')
-
             swal({
-                title: `Estas seguro que deseas eliminar el producto ${listaProductos[codigoProductoABorrar].nombre}?`,
+                title: `Estas seguro que deseas eliminar el producto ${listaProductos[codigoProductoABorrar].producto.nombre}?`,
                 text: "Una vez borrado no hay manera de recuperarlo o deshacer esta accion.",
                 icon: "warning",
                 buttons: ['Cancelar','Aceptar'],
@@ -66,7 +67,7 @@ const listarProductos = () => {
               })
               .then((willDelete) => {
                 if (willDelete) {
-                    borrarArticulo(codigoProductoABorrar)
+                    borrarArticulo(listaProductos[codigoProductoABorrar].codigo)
                 } else {
                   swal("El producto todavia sigue a salvo!");
                 }
@@ -78,11 +79,11 @@ const listarProductos = () => {
         precioProducto.className = 'col'
         stockProducto.className = 'col'
 
-        nombreProducto.innerText = listaProductos[i].nombre
-        categoriaProducto.innerText = listaProductos[i].categoria
-        precioProducto.innerText = listaProductos[i].precio
-        stockProducto.innerText = listaProductos[i].stock
-        codigoProducto.innerText = i
+        nombreProducto.innerText = listaProductos[i]['producto'].nombre
+        categoriaProducto.innerText = listaProductos[i]['producto'].categoria
+        precioProducto.innerText = listaProductos[i]['producto'].precio
+        stockProducto.innerText = listaProductos[i]['producto'].stock
+        codigoProducto.innerText = listaProductos[i].codigo
         botonBorrar.append(borrarProducto)
         filaProducto.append(codigoProducto,nombreProducto,categoriaProducto,precioProducto,stockProducto,botonBorrar)
         cuerpoTabla.append(filaProducto)
@@ -91,3 +92,4 @@ const listarProductos = () => {
 }
 
 listarProductos()
+

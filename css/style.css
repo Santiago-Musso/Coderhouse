@@ -26,6 +26,8 @@ ul {
 .imagenFranquicia{
     width: 300px !important;
     height: 224px !important;
+}
+
 @keyframes animacionBackground {
     from{
         color: black;

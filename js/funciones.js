@@ -25,44 +25,6 @@ class Usuarios{
 const listaUsuarios = [
     new Usuarios('admin','12345',true)
 ]
- //Carga de articulos de ejemplo
-const articuloEjemplo1  = new Productos()
-articuloEjemplo1.nombre = 'Bombon Rocher'
-articuloEjemplo1.precio = 270
-articuloEjemplo1.categoria = 'bombones'
-articuloEjemplo1.stock = 15
-articuloEjemplo1.imagen = 'https://static.wixstatic.com/media/3bf84c_af26b847aee04e4ebabee76f92dca420~mv2.jpg/v1/fill/w_159,h_170,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/IMG_4271-Editar_edited.jpg'
-
-const articuloEjemplo2  = new Productos()
-articuloEjemplo2.nombre = 'Bombon Frambuesa'
-articuloEjemplo2.precio = 270
-articuloEjemplo2.categoria = 'bombones'
-articuloEjemplo2.stock = 15
-articuloEjemplo2.imagen = 'https://static.wixstatic.com/media/3bf84c_3bd0fbed83c043b7b19c8a735476b318~mv2.jpg/v1/fill/w_191,h_170,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/bombon%2520frambuesaaa-01_edited.jpg'
-
-const articuloEjemplo3  = new Productos()
-articuloEjemplo3.nombre = 'Bombon Dulce de leche'
-articuloEjemplo3.precio = 270
-articuloEjemplo3.categoria = 'bombones'
-articuloEjemplo3.stock = 15
-articuloEjemplo3.imagen = 'https://static.wixstatic.com/media/3bf84c_45ee57b0552a4fc1b6a2e5eb8fb7c292~mv2.jpg/v1/fill/w_170,h_170,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/IMG_4246-Editar_edited.jpg'
-
-
-const listaArticulos = [
-    articuloEjemplo1,
-    articuloEjemplo2,
-    articuloEjemplo3
-]
-const listaVacia = JSON.parse(localStorage.getItem('listaArticulos'))
-
-if(listaVacia === null){
-    localStorage.setItem('listaArticulos', JSON.stringify(listaArticulos))
-}else{
-    listaVacia.length === 0 ? localStorage.setItem('listaArticulos', JSON.stringify(listaArticulos)) : false
-}
-
-
-
 
 const $divAdmin = document.getElementById('divAdmin')
 const $div = document.getElementById('div')
@@ -79,6 +41,8 @@ const contraseñaUsuario = document.getElementById('contraseña')
 // de usuarios, ademas verifica que si es admin lo envía a la pagina admin
 
 const validarUsuario = (nombre,contraseña) => {
+    const listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios'))
+
     for(let i = 0; i < listaUsuarios.length ; i++){
         if( nombre === listaUsuarios[i].nombre && contraseña === listaUsuarios[i].contraseña ){
             if(listaUsuarios[i].admin){
@@ -91,50 +55,53 @@ const validarUsuario = (nombre,contraseña) => {
     }
 }
  //**********************Agrega los articulos****************************
-const agregarArticulo = (producto) => {
-    let listaProductosLocal = JSON.parse(localStorage.getItem('listaArticulos'))
+const agregarArticulo = (productoEnviar,codigo) => {
 
-    if(listaProductosLocal === null ){
-        listaProductosLocal = [producto]
-        localStorage.setItem('listaArticulos',JSON.stringify(listaProductosLocal))
-        return true
-    }else{
-        listaProductosLocal.push(producto)
-        localStorage.setItem('listaArticulos',JSON.stringify(listaProductosLocal))
-        return true
-    } 
+    const productoJSON = {
+        producto : productoEnviar,
+        codigo: codigo
+    }
+
+    fetch(`https://63100d3436e6a2a04ee554b1.mockapi.io/ListaProductos/`,{
+        method: 'POST',
+        headers:{"Content-Type": "application/json"},
+        body: JSON.stringify(productoJSON)
+    })
+        .then(resp => location.reload())
+        .catch(error => console.error(error))
 }
 
  //**********************Borra el articulo deseado**********************
 
 const borrarArticulo = (codigo) => {
-    const listaArticulos = JSON.parse(localStorage.getItem('listaArticulos'))
-    const nuevaLista = []
 
-    for(let i = 0; i < listaArticulos.length; i++){
-        if( i != codigo ){
-            nuevaLista.push(listaArticulos[i])
-        }
-    }
-    localStorage.setItem('listaArticulos',JSON.stringify(nuevaLista))
-    location.reload()
+    fetch(`https://63100d3436e6a2a04ee554b1.mockapi.io/ListaProductos/${codigo}`, {
+    method: 'DELETE'
+})
+    .then(resp => location.reload())
+    .catch(error => console.log(error))
 }
-/*  //**********************Da de alta un usuario que sea nuevo************************
+ //**********************Da de alta un usuario que sea nuevo************************
  //Chequea que no se repita nombre de usuario y limpia los inputs
-const altaUsuario = () => {
+const altaUsuario = (usuario,contraseña) => {
     let usuarioRepetido = false
+    const listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios'))
 
     for(let i = 0; i < listaUsuarios.length; i++){
-        if(nombreUsuario.value === listaUsuarios[i].nombre){
-            alert('El usuario ya se encuentra registrado!')
+        if(usuario === listaUsuarios[i].nombre){
             usuarioRepetido = true
-            break
+            return false
         }
     }
     if(!usuarioRepetido){
-        listaUsuarios.push(new Usuarios(nombreUsuario.value,contraseñaUsuario.value,false))
-        alert("Usuario dado de alta correctamente!")
-        nombreUsuario.value = ''
-        contraseñaUsuario.value = ''
+        listaUsuarios.push(new Usuarios(usuario,contraseña,false))
+        localStorage.setItem('listaUsuarios',JSON.stringify(listaUsuarios))
+        return true
     }
-} */
+}
+//Obtener los productos de la API
+const obtenerListaProductos = async () => {
+    const response = await fetch('https://63100d3436e6a2a04ee554b1.mockapi.io/ListaProductos')
+    const data = await response.json()
+    return data
+}
