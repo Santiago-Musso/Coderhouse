@@ -1,6 +1,6 @@
 *{
+    padding: 0 !important; 
     margin: 0 !important;
-    padding: 0 !important;  
 }
 ul {
     list-style: none;
@@ -43,6 +43,9 @@ ul {
     display: none;
 }
 .producto {
-    height: 250px;
-    width: 200px;
+    height: 300px !important;
+    width: 250px !important;
+}
+.imagenProducto{
+    max-height: 200px;
 }

@@ -43,9 +43,9 @@ const contraseñaUsuario = document.getElementById('contraseña')
 const validarUsuario = async (nombre,contraseña) => {
     const respuesta = await fetch('https://63100d3436e6a2a04ee554b1.mockapi.io/ListaUsuarios')
     const listaUsuarios = await respuesta.json()
-    console.log(listaUsuarios)
-    for(let i = 0; i < listaUsuarios.length ; i++){
-        if( nombre === listaUsuarios[i].user && contraseña === listaUsuarios[i].password ){
+
+    for(let i = 0; i < listaUsuarios.length; i++){
+        if(nombre === listaUsuarios[i].user && contraseña === listaUsuarios[i].password){
             if(listaUsuarios[i].admin){
                 window.location.href = './admin.html'
                 return true
@@ -54,6 +54,7 @@ const validarUsuario = async (nombre,contraseña) => {
             }
         }
     }
+    return false
 }
  //**********************Agrega los articulos****************************
 const agregarArticulo = (productoEnviar,codigo) => {
@@ -84,25 +85,52 @@ const borrarArticulo = (codigo) => {
 }
  //**********************Da de alta un usuario que sea nuevo************************
  //Chequea que no se repita nombre de usuario y limpia los inputs
-const altaUsuario = (usuario,contraseña) => {
-    let usuarioRepetido = false
-    const listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios'))
+const altaUsuario = async (usuario,contraseña) => {
+    const respuesta = await fetch('https://63100d3436e6a2a04ee554b1.mockapi.io/ListaUsuarios')
+    const listaUsuarios = await respuesta.json()
 
     for(let i = 0; i < listaUsuarios.length; i++){
-        if(usuario === listaUsuarios[i].nombre){
-            usuarioRepetido = true
+        if(usuario === listaUsuarios[i].user){
             return false
         }
     }
-    if(!usuarioRepetido){
-        listaUsuarios.push(new Usuarios(usuario,contraseña,false))
-        localStorage.setItem('listaUsuarios',JSON.stringify(listaUsuarios))
-        return true
+    const nuevoUsuario = {
+        user : usuario,
+        password : contraseña,
+        admin : false
     }
+    fetch('https://63100d3436e6a2a04ee554b1.mockapi.io/ListaUsuarios', {
+        method: 'POST',
+        headers:{"Content-Type": "application/json"},
+        body: JSON.stringify(nuevoUsuario)
+    })
+        .then(resp => () => {
+            return true
+        })
+        .catch(error => (error) => {
+            console.log(error)
+            return false
+        } )
 }
 //Obtener los productos de la API
 const obtenerListaProductos = async () => {
     const response = await fetch('https://63100d3436e6a2a04ee554b1.mockapi.io/ListaProductos')
     const data = await response.json()
     return data
+}
+
+//SweetAlert cantidad de productos
+const elegirCantidadProducto = async (stock) => {
+    Swal.fire({
+        title: 'Ingrese cantidad',
+        icon: 'question',
+        input: 'range',
+        inputLabel: 'Cantidad',
+        inputAttributes: {
+          min: 0,
+          max: stock,
+          step: 1
+        },
+      })
+      .then(resp => console.log(resp.value))
 }
