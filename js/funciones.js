@@ -40,11 +40,12 @@ const contraseñaUsuario = document.getElementById('contraseña')
 // Valida que sea correcto el usuario y la contraseña con respecto a la lista
 // de usuarios, ademas verifica que si es admin lo envía a la pagina admin
 
-const validarUsuario = (nombre,contraseña) => {
-    const listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios'))
-
+const validarUsuario = async (nombre,contraseña) => {
+    const respuesta = await fetch('https://63100d3436e6a2a04ee554b1.mockapi.io/ListaUsuarios')
+    const listaUsuarios = await respuesta.json()
+    console.log(listaUsuarios)
     for(let i = 0; i < listaUsuarios.length ; i++){
-        if( nombre === listaUsuarios[i].nombre && contraseña === listaUsuarios[i].contraseña ){
+        if( nombre === listaUsuarios[i].user && contraseña === listaUsuarios[i].password ){
             if(listaUsuarios[i].admin){
                 window.location.href = './admin.html'
                 return true
