@@ -1,6 +1,11 @@
+@import "_mapas";
+@import "_mixins";
+
 *{
-    padding: 0 !important; 
-    margin: 0 !important;
+    @media only screen and (max-width: 992px){     
+        padding: 0 !important; 
+        margin: 0 !important;
+    }
 }
 ul {
     list-style: none;
@@ -12,40 +17,26 @@ ul {
     display: none;
 }
 .bg-marron{
-    background-color: rgb(209,176,146) !important;
+    background-color: map-get($map: $background-color, $key: bg-marron) !important;
 }
 #flexCheckDefault:checked~.navegadorMobile{
     display: flex !important;
     position: absolute;
     top: 24px !important; 
-    background: rgb(209,176,146);
+    background: map-get($map: $background-color, $key: bg-marron);
     width: 100%;
     height: calc(100vh - 89px - 24px);    
 }
 
 .imagenFranquicia{
-    width: 300px !important;
-    height: 224px !important;
-}
-
-@keyframes animacionBackground {
-    from{
-        color: black;
-    }
-    to{
-        color: white;
-    }
-}
-.animarTitulo{
-    animation: animacionBackground 5s linear 0s infinite alternate;
+    @include sizes(300px,224px);
 }
 .oculto {
     display: none;
 }
 .producto {
-    height: 300px !important;
-    width: 250px !important;
+    @include sizes(250px,300px);
 }
 .imagenProducto{
-    max-height: 200px;
+    max-height: 200px !important;
 }

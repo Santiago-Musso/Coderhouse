@@ -1,6 +1,7 @@
-* {
-  padding: 0 !important;
-  margin: 0 !important; }
+@media only screen and (max-width: 992px) {
+  * {
+    padding: 0 !important;
+    margin: 0 !important; } }
 
 ul {
   list-style: none; }
@@ -23,17 +24,8 @@ ul {
   height: calc(100vh - 89px - 24px); }
 
 .imagenFranquicia {
-  width: 300px !important;
-  height: 224px !important; }
-
-@keyframes animacionBackground {
-  from {
-    color: black; }
-  to {
-    color: white; } }
-
-.animarTitulo {
-  animation: animacionBackground 5s linear 0s infinite alternate; }
+  height: 224px !important;
+  width: 300px !important; }
 
 .oculto {
   display: none; }
@@ -43,4 +35,4 @@ ul {
   width: 250px !important; }
 
 .imagenProducto {
-  max-height: 200px; }
+  max-height: 200px !important; }
