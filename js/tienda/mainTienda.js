@@ -10,7 +10,7 @@ botonLogin.onclick = async () => {
     const usuarioValido = await validarUsuario(nombreUsuario.value, contraseñaUsuario.value)
 
     if(usuarioValido){
-        iconoLogin.className = 'oculto'
+        iconoLogin.className = 'animate__animated animate__bounceOutDown'
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -73,7 +73,7 @@ const completarProductos = async () => {
         const imagenProducto = document.createElement('img')
         const botonAgregarCarrito = document.createElement('button')
 
-        cartaProducto.className = "card m-3 d-flex justify-content-center producto"
+        cartaProducto.className = "card m-3 d-flex justify-content-center producto animate__animated animate__flipInX"
         contenedorProducto.className = "card-body"
         botonAgregarCarrito.className = "btn btn-outline-dark"
         botonAgregarCarrito.setAttribute('codigo',i+1)
