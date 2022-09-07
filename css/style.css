@@ -1,51 +1,46 @@
-*{
-    padding: 0 !important; 
-    margin: 0 !important;
-}
-ul {
-    list-style: none;
-}
-#flexCheckDefault{
-    display: none;
-}
-.listaHeader{
-    display: none;
-}
-.bg-marron{
-    background-color: rgba(209,176,146) !important;
-}
-#flexCheckDefault:checked~.navegadorMobile{
-    display: flex !important;
-    position: absolute;
-    top: 24px !important; 
-    background: rgba(209,176,146);
-    width: 100%;
-    height: calc(100vh - 89px - 24px);    
-}
+* {
+  padding: 0 !important;
+  margin: 0 !important; }
 
-.imagenFranquicia{
-    width: 300px !important;
-    height: 224px !important;
-}
+ul {
+  list-style: none; }
+
+#flexCheckDefault {
+  display: none; }
+
+.listaHeader {
+  display: none; }
+
+.bg-marron {
+  background-color: #d1b092 !important; }
+
+#flexCheckDefault:checked ~ .navegadorMobile {
+  display: flex !important;
+  position: absolute;
+  top: 24px !important;
+  background: #d1b092;
+  width: 100%;
+  height: calc(100vh - 89px - 24px); }
+
+.imagenFranquicia {
+  width: 300px !important;
+  height: 224px !important; }
 
 @keyframes animacionBackground {
-    from{
-        color: black;
-    }
-    to{
-        color: white;
-    }
-}
-.animarTitulo{
-    animation: animacionBackground 5s linear 0s infinite alternate;
-}
+  from {
+    color: black; }
+  to {
+    color: white; } }
+
+.animarTitulo {
+  animation: animacionBackground 5s linear 0s infinite alternate; }
+
 .oculto {
-    display: none;
-}
+  display: none; }
+
 .producto {
-    height: 300px !important;
-    width: 250px !important;
-}
-.imagenProducto{
-    max-height: 200px;
-}
+  height: 300px !important;
+  width: 250px !important; }
+
+.imagenProducto {
+  max-height: 200px; }
