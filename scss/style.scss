@@ -1,0 +1,42 @@
+@import "_mapas";
+@import "_mixins";
+
+*{
+    @media only screen and (max-width: 992px){     
+        padding: 0 !important; 
+        margin: 0 !important;
+    }
+}
+ul {
+    list-style: none;
+}
+#flexCheckDefault{
+    display: none;
+}
+.listaHeader{
+    display: none;
+}
+.bg-marron{
+    background-color: map-get($map: $background-color, $key: bg-marron) !important;
+}
+#flexCheckDefault:checked~.navegadorMobile{
+    display: flex !important;
+    position: absolute;
+    top: 24px !important; 
+    background: map-get($map: $background-color, $key: bg-marron);
+    width: 100%;
+    height: calc(100vh - 89px - 24px);    
+}
+
+.imagenFranquicia{
+    @include sizes(300px,224px);
+}
+.oculto {
+    display: none;
+}
+.producto {
+    @include sizes(250px,300px);
+}
+.imagenProducto{
+    max-height: 200px !important;
+}

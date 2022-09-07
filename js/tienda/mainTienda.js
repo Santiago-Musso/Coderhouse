@@ -73,9 +73,9 @@ const completarProductos = async () => {
         const imagenProducto = document.createElement('img')
         const botonAgregarCarrito = document.createElement('button')
 
-        cartaProducto.className = "card m-3 d-flex justify-content-center producto animate__animated animate__flipInX"
-        contenedorProducto.className = "card-body"
-        botonAgregarCarrito.className = "btn btn-outline-dark"
+        cartaProducto.className = "card m-3 p-0 d-flex justify-content-center producto animate__animated animate__flipInX"
+        contenedorProducto.className = "card-body p-0 contenedorProducto"
+        botonAgregarCarrito.className = "btn p-0 btn-outline-dark"
         botonAgregarCarrito.setAttribute('codigo',i+1)
 
         botonAgregarCarrito.onclick = (e) => {
