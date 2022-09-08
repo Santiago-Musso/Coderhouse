@@ -1,32 +1,24 @@
 const botonLogin = document.getElementById('botonLogin')
 const botonRegistro = document.getElementById('botonRegistro')
+const botonSalirUsuario = document.getElementById('salirUsuario')
 const iconoLogin = document.querySelector('.login')
+const nombreUsuarioLogueado = document.getElementById('nombreUsuarioLogueado')
+const botonVerCarrito = document.getElementById('verCarrito')
+const botonCerrarCarrito = document.getElementById('cierreCarrito')
+const botonCerrarCarrito2 = document.getElementById('cierreCarrito2')
 const contendorProductos = document.querySelector('.contenedorProductos')
+const modalCarrito = document.querySelector('.modal-body')
+const botonPagar = document.getElementById('botonPagar')
+
 
 //Valida el usuario ingresado
 botonLogin.onclick = async () => {
     const nombreUsuario = document.getElementById('nombreUsuario')
     const contraseñaUsuario = document.getElementById('contraseñaUsuario')
-    const usuarioValido = await validarUsuario(nombreUsuario.value, contraseñaUsuario.value)
+    const usuario = await validarUsuario(nombreUsuario.value, contraseñaUsuario.value)
 
-    if(usuarioValido){
-        iconoLogin.className = 'animate__animated animate__bounceOutDown'
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-          })
-          
-          Toast.fire({
-            icon: 'success',
-            title: 'Ingresado correctamente!'
-          })
+    if(usuario){
+        usuarioValido(nombreUsuario.value)
     }else{
         Swal.fire({
             icon: 'error',
@@ -35,6 +27,20 @@ botonLogin.onclick = async () => {
         })
     }
 }
+
+botonVerCarrito.onclick = mostrarCarrito
+botonCerrarCarrito.onclick = () => {
+    while (modalCarrito.firstChild) {
+        modalCarrito.removeChild(modalCarrito.firstChild);
+      }
+}
+botonCerrarCarrito2.onclick = () => {
+    while (modalCarrito.firstChild) {
+        modalCarrito.removeChild(modalCarrito.firstChild);
+      }
+}
+
+botonPagar.onclick = pantallaPago
 
 botonRegistro.onclick = () => {
     const nombreUsuario = document.getElementById('nombreUsuario')
@@ -60,7 +66,15 @@ botonRegistro.onclick = () => {
           });
     }
 }
-//Rellena 
+
+botonSalirUsuario.onclick = () => {
+    if(localStorage.getItem('tokenUser') != undefined){
+        localStorage.removeItem('tokenUser')
+        location.reload()
+    }
+}
+
+//Rellena la tienda de productos
 const completarProductos = async () => {
     const listaArticulos = await obtenerListaProductos()
 
@@ -79,9 +93,17 @@ const completarProductos = async () => {
         botonAgregarCarrito.setAttribute('codigo',i+1)
 
         botonAgregarCarrito.onclick = (e) => {
-            const productoASumar = e.target.getAttribute('codigo')
-            const stockProductoASumar = listaArticulos[productoASumar].producto.stock
-            elegirCantidadProducto(stockProductoASumar)
+            if(localStorage.getItem('tokenUser') != undefined){
+                const productoASumar = e.target.getAttribute('codigo')
+                const stockProductoASumar = listaArticulos[productoASumar].producto.stock
+                elegirCantidadProducto(stockProductoASumar,listaArticulos[productoASumar].codigo)
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Debes loguearte para agregar al carrito'
+                  })
+            }
         }
         
         nombreProducto.innerText = listaArticulos[i].producto.nombre
@@ -96,4 +118,6 @@ const completarProductos = async () => {
     }
 }
 
+
+buscarToken()
 completarProductos()
