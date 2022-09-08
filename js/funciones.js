@@ -12,19 +12,15 @@ class Productos{
     }
 }
 class Usuarios{
-    constructor(nombre,contraseña,admin,carrito){
+    constructor(nombre,contraseña,admin,token){
         this.nombre = nombre
         this.contraseña = contraseña
         this.admin = admin
-        this.carrito = carrito
+        this.token = token
     }
 }
 
 //***************************Constantes y variables*************************
-
-const listaUsuarios = [
-    new Usuarios('admin','12345',true)
-]
 
 const $divAdmin = document.getElementById('divAdmin')
 const $div = document.getElementById('div')
@@ -33,6 +29,12 @@ const $divCliente = document.getElementById('divCliente')
 const $botonSalir = document.createElement('button')
 const nombreUsuario = document.getElementById('usuario')
 const contraseñaUsuario = document.getElementById('contraseña')
+const myModal = document.getElementById('modalCarrito')
+const myInput = document.getElementById('modal')
+const mp = new MercadoPago('APP_USR-7653328e-1a31-4ee0-be01-cd2bef3e8ce7', {
+    locale: 'es-AR'
+})
+let totalCompra = 0
 
 
 //******************************* Funciones ********************************
@@ -41,8 +43,7 @@ const contraseñaUsuario = document.getElementById('contraseña')
 // de usuarios, ademas verifica que si es admin lo envía a la pagina admin
 
 const validarUsuario = async (nombre,contraseña) => {
-    const respuesta = await fetch('https://63100d3436e6a2a04ee554b1.mockapi.io/ListaUsuarios')
-    const listaUsuarios = await respuesta.json()
+    const listaUsuarios = await obtenerListaUsuarios()
 
     for(let i = 0; i < listaUsuarios.length; i++){
         if(nombre === listaUsuarios[i].user && contraseña === listaUsuarios[i].password){
@@ -50,6 +51,7 @@ const validarUsuario = async (nombre,contraseña) => {
                 window.location.href = './admin.html'
                 return true
             }else{
+                localStorage.setItem('tokenUser', listaUsuarios[i].token)
                 return true                
             }
         }
@@ -76,7 +78,6 @@ const agregarArticulo = (productoEnviar,codigo) => {
  //**********************Borra el articulo deseado**********************
 
 const borrarArticulo = (codigo) => {
-
     fetch(`https://63100d3436e6a2a04ee554b1.mockapi.io/ListaProductos/${codigo}`, {
     method: 'DELETE'
 })
@@ -86,8 +87,7 @@ const borrarArticulo = (codigo) => {
  //**********************Da de alta un usuario que sea nuevo************************
  //Chequea que no se repita nombre de usuario y limpia los inputs
 const altaUsuario = async (usuario,contraseña) => {
-    const respuesta = await fetch('https://63100d3436e6a2a04ee554b1.mockapi.io/ListaUsuarios')
-    const listaUsuarios = await respuesta.json()
+    const listaUsuarios = await obtenerListaUsuarios()
 
     for(let i = 0; i < listaUsuarios.length; i++){
         if(usuario === listaUsuarios[i].user){
@@ -97,7 +97,8 @@ const altaUsuario = async (usuario,contraseña) => {
     const nuevoUsuario = {
         user : usuario,
         password : contraseña,
-        admin : false
+        admin : false,
+        token : randomToken() + randomToken()
     }
     fetch('https://63100d3436e6a2a04ee554b1.mockapi.io/ListaUsuarios', {
         method: 'POST',
@@ -118,9 +119,14 @@ const obtenerListaProductos = async () => {
     const data = await response.json()
     return data
 }
-
+//Obtener lista de usuarios de la API
+const obtenerListaUsuarios = async () => {
+    const response = await fetch('https://63100d3436e6a2a04ee554b1.mockapi.io/ListaUsuarios')
+    const data = await response.json()
+    return data
+}
 //SweetAlert cantidad de productos
-const elegirCantidadProducto = async (stock) => {
+const elegirCantidadProducto = async (stock,codigo) => {
     Swal.fire({
         title: 'Ingrese cantidad',
         icon: 'question',
@@ -132,5 +138,189 @@ const elegirCantidadProducto = async (stock) => {
           step: 1
         },
       })
-      .then(resp => console.log(resp.value))
+      .then(cantidad => agregarCarrito(codigo,cantidad.value))
+}
+
+//Token random para usuario
+const randomToken = () => {
+    return Math.random().toString(36).substr(2)
+};
+
+//Se ejecuta cuando el usuario es valido
+const usuarioValido = (nombreUser) => {
+    iconoLogin.className = 'animate__animated animate__bounceOutLeft'
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      Toast.fire({
+        icon: 'success',
+        title: 'Ingresado correctamente!'
+      })
+      setTimeout(() => {
+            iconoLogin.className = 'oculto'
+            botonVerCarrito.className = 'btn bg-marron p-1 rounded-start border-dark'
+            botonSalirUsuario.className = "btn bg-marron border-dark rounded-end p-1"
+            nombreUsuarioLogueado.className = 'nav-link disabled p-2'
+            nombreUsuarioLogueado.innerText = `Bienvenido ${nombreUser}!`
+      },500)
+}
+
+//Busca el token guardado en el localStorage 
+const buscarToken = async () => {
+    const tokenLocal = localStorage.getItem('tokenUser')
+    const listaUsuarios = await obtenerListaUsuarios()
+
+    for(let i = 0; i < listaUsuarios.length; i++){
+        if(listaUsuarios[i].token === tokenLocal){
+            usuarioValido(listaUsuarios[i].user)
+        }
+    }
+}
+//Añadir al carrito
+const agregarCarrito = async(codigo,cantidad) => {
+    const usuarioLogueado = localStorage.getItem('tokenUser')
+    const listaUsuarios = await obtenerListaUsuarios()
+    const productoASumar = {
+        codigo : codigo,
+        cantidad : cantidad
+    }
+  
+    for(let i = 0; i < listaUsuarios.length; i++){
+        if(listaUsuarios[i].token === usuarioLogueado){      
+
+            listaUsuarios[i].carrito.push(productoASumar)
+
+            fetch(`https://63100d3436e6a2a04ee554b1.mockapi.io/ListaUsuarios/${listaUsuarios[i].id}`, {
+                method: 'PUT',
+                headers:{"Content-Type": "application/json"},
+                body: JSON.stringify(listaUsuarios[i])
+            })
+        }
+    }
+}
+
+//Muestra el carrito
+const mostrarCarrito = async() => {
+
+    const listaUsuarios = await obtenerListaUsuarios()
+    const listaProductos = await obtenerListaProductos()
+
+    const tokenUsuarioLogueado = localStorage.getItem('tokenUser')
+
+    const tabla = document.createElement('table')
+    const headerTabla = document.createElement('thead')
+    const cantidadHeader = document.createElement('th')
+    const nombreHeader = document.createElement('th')
+    const precioHeader = document.createElement('th')
+    const borrarHeader = document.createElement('th')
+    const totalCarrito = document.createElement('td')
+    const columnaVacia = document.createElement('td')
+    const columnaTotal = document.createElement('td')
+
+    tabla.className = 'table'
+
+    cantidadHeader.innerText = 'Cantidad'
+    nombreHeader.innerText = 'Nombre'
+    precioHeader.innerText = 'Precio'
+    columnaTotal.innerHTML = '<b>Total: </b>$'
+
+
+    headerTabla.append(cantidadHeader,nombreHeader,precioHeader,borrarHeader)
+    tabla.append(headerTabla)
+    modalCarrito.append(tabla)
+
+    for(let i = 0; i < listaUsuarios.length ; i++){
+        if(listaUsuarios[i].token === tokenUsuarioLogueado){
+            for(let j = 0; j < listaUsuarios[i].carrito.length; j++){
+            
+                const filaProducto = document.createElement('tr')
+                const cantidadProducto = document.createElement('td')
+                const nombreProducto = document.createElement('td')
+                const precioProducto = document.createElement('td')
+                const borrarProducto = document.createElement('button')
+                
+            
+                borrarProducto.className = 'btn-close'
+                borrarProducto.setAttribute('codigo',listaUsuarios[i].carrito[j].codigo)
+                cantidadProducto.innerText = listaUsuarios[i].carrito[j].cantidad
+
+                for(let k = 0; k < listaProductos.length ; k++){
+                    if(listaProductos[k].codigo === listaUsuarios[i].carrito[j].codigo){
+                        nombreProducto.innerText = listaProductos[k].producto.nombre
+                        precioProducto.innerText = '$' + listaProductos[k].producto.precio
+                        totalCompra += (listaUsuarios[i].carrito[j].cantidad * listaProductos[k].producto.precio)
+                    }
+                }
+                filaProducto.append(cantidadProducto,nombreProducto,precioProducto,borrarProducto)
+                tabla.append(filaProducto)
+            }
+            totalCarrito.innerHTML = totalCompra
+            tabla.append(columnaVacia,columnaTotal,totalCarrito)
+        }
+    }
+}
+
+const pantallaPago = () => {
+    const bricksBuilder = mp.bricks()
+
+    const renderPaymentBrick = async (bricksBuilder) => {
+        const settings = {
+          initialization: {
+            amount: totalCompra, // valor del pago a realizar
+          },
+          customization: {
+            paymentMethods: {
+              creditCard: 'all',
+              debitCard: 'all',
+            },
+          },
+          callbacks: {
+            onReady: () => {
+              // callback llamado cuando Brick esté listo
+            },
+            onSubmit: ({ paymentType, formData }) => {
+              // callback llamado cuando el usuario haz clic en el botón enviar los datos
+             
+              if (paymentType === 'credit_card' || paymentType === 'debit_card') {
+                return new Promise((resolve, reject) => {
+                  fetch("/processar-pago", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData)
+                  })
+                    .then((response) => {
+                        console.log(response)
+                      // recibir el resultado del pago
+                      resolve();
+                    })
+                    .catch((error) => {
+                      // tratar respuesta de error al intentar crear el pago
+                      reject();
+                    })
+                });
+              }
+            },
+            onError: (error) => {
+              // callback llamado para todos los casos de error de Brick
+            },
+          },
+        };
+        window.paymentBrickController = await bricksBuilder.create(
+          'payment',
+          'paymentBrick_container',
+          settings
+        );
+       };
+       renderPaymentBrick(bricksBuilder);
+
 }

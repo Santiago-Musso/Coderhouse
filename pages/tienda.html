@@ -62,22 +62,56 @@
 <section class="row justify-content-center">
     <div class="input-group p-2 w-50">
         <input type="text" class="form-control" placeholder="Buscar producto..." aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+        <button class="btn bg-marron border border-dark p-1" type="button" id="button-addon2">Buscar</button>
         <div class="dropdown login">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn bg-marron border border-dark rounded-0 rounded-end dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
                 Ingreso usuarios
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu bg-marron">
                 <li><input type="text" class="dropdown-item" id="nombreUsuario" placeholder="Usuario"></li>
                 <li><input type="password" class="dropdown-item" id="contraseñaUsuario" placeholder="Contraseña"></li>
-                <li>
-                    <button class="btn btn-outline-secondary" type="button" id="botonLogin">Entrar</button>
-                    <button class="btn btn-outline-secondary" type="button" id="botonRegistro">Registrarse</button>
+                <li class="d-flex justify-content-around p-1">
+                    <button class="btn btn-light border border-dark" type="button" id="botonLogin">Entrar</button>
+                    <button class="btn btn-light border border-dark" type="button" id="botonRegistro">Registrarse</button>
                 </li>
             </ul>
         </div>
+        <a class="oculto" id="nombreUsuarioLogueado"></a>
+        <button type="button" class="oculto" id="verCarrito"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ver carrito</button>
+        <button type="button" class="oculto" id="salirUsuario">Salir</button>
     </div>
-
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Carrito de compras</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="cierreCarrito"></button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cierreCarrito2">Cerrar</button>
+              <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2" id="botonPagar">Pagar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel2">Pago</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="cierreCarrito"></button>
+            </div>
+            <div class="modal-body">
+                <div id="paymentBrick_container"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cierreCarrito2">Cerrar</button>
+            </div>
+          </div>
+        </div>
+    </div>
     <div class="row justify-content-center contenedorProductos">
     </div>
 </section>
@@ -115,6 +149,7 @@
       </div>
   </div>
 </footer>
+<script src="https://sdk.mercadopago.com/js/v2"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://kit.fontawesome.com/494063b862.js" crossorigin="anonymous"></script>
