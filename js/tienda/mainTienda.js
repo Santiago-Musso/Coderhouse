@@ -140,6 +140,5 @@ document.addEventListener("keyup", e => {
     }
 })
 
-
 buscarToken()
 completarProductos()

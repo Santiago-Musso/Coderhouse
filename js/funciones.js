@@ -31,7 +31,6 @@ const nombreUsuario = document.getElementById('usuario')
 const contraseñaUsuario = document.getElementById('contraseña')
 const myModal = document.getElementById('modalCarrito')
 const myInput = document.getElementById('modal')
-
 let totalCompra = 0
 
 
@@ -252,7 +251,6 @@ const mostrarCarrito = async() => {
                 borrarProducto.className = 'btn-close'
                 borrarProducto.setAttribute('codigo',listaUsuarios[i].carrito[j].codigo)
                 cantidadProducto.innerText = listaUsuarios[i].carrito[j].cantidad
-
                 borrarProducto.onclick = (e) => {
                     borrarProductoCarrito(e.target.getAttribute('codigo'), listaUsuarios[i].id)
                 }
@@ -267,6 +265,7 @@ const mostrarCarrito = async() => {
                 filaProducto.append(cantidadProducto,nombreProducto,precioProducto,borrarProducto)
                 tabla.append(filaProducto)
             }
+            
             if(listaUsuarios[i].carrito.length === 0){
                 const mensaje = document.createElement('h4')
                 mensaje.innerText = 'El carrito de compras esta vacío'

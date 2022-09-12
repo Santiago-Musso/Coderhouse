@@ -1,7 +1,7 @@
 {
   "name": "coderhouse",
   "version": "1.0.0",
-  "description": "Proyecto Coderhouse",
+  "description": "Proyecto de Coderhouse del alumno Santiago Musso, sobre la Heladería Trapani. Cuenta con tienda para realizar la compra de productos, y demas secciones en las cuales van a poder conocer todos nuestros productos y una breve historia acerca de la heladería.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
