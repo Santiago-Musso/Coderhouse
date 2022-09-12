@@ -61,8 +61,7 @@
 
 <section class="row justify-content-center">
     <div class="input-group p-2 w-50">
-        <input type="text" class="form-control" placeholder="Buscar producto..." aria-describedby="button-addon2">
-        <button class="btn bg-marron border border-dark p-1" type="button" id="button-addon2">Buscar</button>
+        <input type="text" class="form-control" placeholder="Buscar producto..." aria-describedby="button-addon2" id="buscador">
         <div class="dropdown login">
             <button class="btn bg-marron border border-dark rounded-0 rounded-end dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
                 Ingreso usuarios
@@ -91,12 +90,12 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cierreCarrito2">Cerrar</button>
-              <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2" id="botonPagar">Pagar</button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" id="botonPagar">Pagar</button>
             </div>
           </div>
         </div>
     </div>
-    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+    <div class="modal modal-xl fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
@@ -104,10 +103,9 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="cierreCarrito"></button>
             </div>
             <div class="modal-body">
-                <div id="paymentBrick_container"></div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cierreCarrito2">Cerrar</button>
+                <div>
+                    <iframe src="https://link.mercadopago.com.ar/santiagomusso" frameborder="0" class="iframe"></iframe>
+                </div>
             </div>
           </div>
         </div>
@@ -149,7 +147,6 @@
       </div>
   </div>
 </footer>
-<script src="https://sdk.mercadopago.com/js/v2"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://kit.fontawesome.com/494063b862.js" crossorigin="anonymous"></script>

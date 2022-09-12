@@ -28,7 +28,7 @@ ul {
   width: 300px !important; }
 
 .oculto {
-  display: none; }
+  display: none !important; }
 
 .producto {
   height: 300px !important;
@@ -36,3 +36,7 @@ ul {
 
 .imagenProducto {
   max-height: 200px !important; }
+
+.iframe {
+  height: 60vh !important;
+  width: 100% !important; }

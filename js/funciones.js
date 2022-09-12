@@ -31,9 +31,7 @@ const nombreUsuario = document.getElementById('usuario')
 const contraseñaUsuario = document.getElementById('contraseña')
 const myModal = document.getElementById('modalCarrito')
 const myInput = document.getElementById('modal')
-const mp = new MercadoPago('APP_USR-7653328e-1a31-4ee0-be01-cd2bef3e8ce7', {
-    locale: 'es-AR'
-})
+
 let totalCompra = 0
 
 
@@ -138,7 +136,7 @@ const elegirCantidadProducto = async (stock,codigo) => {
           step: 1
         },
       })
-      .then(cantidad => agregarCarrito(codigo,cantidad.value))
+    .then(cantidad => agregarCarrito(codigo,cantidad.value))
 }
 
 //Token random para usuario
@@ -186,23 +184,32 @@ const buscarToken = async () => {
 }
 //Añadir al carrito
 const agregarCarrito = async(codigo,cantidad) => {
-    const usuarioLogueado = localStorage.getItem('tokenUser')
-    const listaUsuarios = await obtenerListaUsuarios()
-    const productoASumar = {
-        codigo : codigo,
-        cantidad : cantidad
-    }
-  
-    for(let i = 0; i < listaUsuarios.length; i++){
-        if(listaUsuarios[i].token === usuarioLogueado){      
-
-            listaUsuarios[i].carrito.push(productoASumar)
-
-            fetch(`https://63100d3436e6a2a04ee554b1.mockapi.io/ListaUsuarios/${listaUsuarios[i].id}`, {
-                method: 'PUT',
-                headers:{"Content-Type": "application/json"},
-                body: JSON.stringify(listaUsuarios[i])
-            })
+    if(cantidad !== undefined && parseInt(cantidad) !== 0){
+        const usuarioLogueado = localStorage.getItem('tokenUser')
+        const listaUsuarios = await obtenerListaUsuarios()
+        const productoASumar = {
+            codigo : codigo,
+            cantidad : cantidad
+        }
+        
+        for(let i = 0; i < listaUsuarios.length; i++){
+            if(listaUsuarios[i].token === usuarioLogueado){      
+    
+                listaUsuarios[i].carrito.push(productoASumar)
+    
+                fetch(`https://63100d3436e6a2a04ee554b1.mockapi.io/ListaUsuarios/${listaUsuarios[i].id}`, {
+                    method: 'PUT',
+                    headers:{"Content-Type": "application/json"},
+                    body: JSON.stringify(listaUsuarios[i])
+                })
+                .then(() => {
+                    Swal.fire(
+                        'Producto agregado correctamente',
+                        '',
+                        'success'
+                      )
+                })
+            }
         }
     }
 }
@@ -232,15 +239,9 @@ const mostrarCarrito = async() => {
     precioHeader.innerText = 'Precio'
     columnaTotal.innerHTML = '<b>Total: </b>$'
 
-
-    headerTabla.append(cantidadHeader,nombreHeader,precioHeader,borrarHeader)
-    tabla.append(headerTabla)
-    modalCarrito.append(tabla)
-
     for(let i = 0; i < listaUsuarios.length ; i++){
         if(listaUsuarios[i].token === tokenUsuarioLogueado){
             for(let j = 0; j < listaUsuarios[i].carrito.length; j++){
-            
                 const filaProducto = document.createElement('tr')
                 const cantidadProducto = document.createElement('td')
                 const nombreProducto = document.createElement('td')
@@ -252,6 +253,10 @@ const mostrarCarrito = async() => {
                 borrarProducto.setAttribute('codigo',listaUsuarios[i].carrito[j].codigo)
                 cantidadProducto.innerText = listaUsuarios[i].carrito[j].cantidad
 
+                borrarProducto.onclick = (e) => {
+                    borrarProductoCarrito(e.target.getAttribute('codigo'), listaUsuarios[i].id)
+                }
+
                 for(let k = 0; k < listaProductos.length ; k++){
                     if(listaProductos[k].codigo === listaUsuarios[i].carrito[j].codigo){
                         nombreProducto.innerText = listaProductos[k].producto.nombre
@@ -262,65 +267,43 @@ const mostrarCarrito = async() => {
                 filaProducto.append(cantidadProducto,nombreProducto,precioProducto,borrarProducto)
                 tabla.append(filaProducto)
             }
-            totalCarrito.innerHTML = totalCompra
-            tabla.append(columnaVacia,columnaTotal,totalCarrito)
+            if(listaUsuarios[i].carrito.length === 0){
+                const mensaje = document.createElement('h4')
+                mensaje.innerText = 'El carrito de compras esta vacío'
+                modalCarrito.append(mensaje)
+            }else{
+                headerTabla.append(cantidadHeader,nombreHeader,precioHeader,borrarHeader)
+                tabla.append(headerTabla)
+                modalCarrito.append(tabla)
+                totalCarrito.innerHTML = totalCompra
+                tabla.append(columnaVacia,columnaTotal,totalCarrito)
+            }
         }
     }
 }
 
-const pantallaPago = () => {
-    const bricksBuilder = mp.bricks()
+//Borra el producto del carrito
 
-    const renderPaymentBrick = async (bricksBuilder) => {
-        const settings = {
-          initialization: {
-            amount: totalCompra, // valor del pago a realizar
-          },
-          customization: {
-            paymentMethods: {
-              creditCard: 'all',
-              debitCard: 'all',
-            },
-          },
-          callbacks: {
-            onReady: () => {
-              // callback llamado cuando Brick esté listo
-            },
-            onSubmit: ({ paymentType, formData }) => {
-              // callback llamado cuando el usuario haz clic en el botón enviar los datos
-             
-              if (paymentType === 'credit_card' || paymentType === 'debit_card') {
-                return new Promise((resolve, reject) => {
-                  fetch("/processar-pago", {
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(formData)
-                  })
-                    .then((response) => {
-                        console.log(response)
-                      // recibir el resultado del pago
-                      resolve();
-                    })
-                    .catch((error) => {
-                      // tratar respuesta de error al intentar crear el pago
-                      reject();
-                    })
-                });
-              }
-            },
-            onError: (error) => {
-              // callback llamado para todos los casos de error de Brick
-            },
-          },
-        };
-        window.paymentBrickController = await bricksBuilder.create(
-          'payment',
-          'paymentBrick_container',
-          settings
-        );
-       };
-       renderPaymentBrick(bricksBuilder);
+const borrarProductoCarrito = async (codigo,id) => {
+    const data = await fetch(`https://63100d3436e6a2a04ee554b1.mockapi.io/ListaUsuarios/${id}`)
+    const usuario = await data.json()
 
+    const nuevoCarrito = []
+
+    for(let i = 0; i < usuario.carrito.length ; i++){
+        if(usuario.carrito[i].codigo !== codigo){
+            nuevoCarrito.push(usuario.carrito[i])
+        }
+    }
+
+    usuario.carrito = nuevoCarrito
+
+    fetch(`https://63100d3436e6a2a04ee554b1.mockapi.io/ListaUsuarios/${id}`, {
+        method: 'PUT',
+        headers:{"Content-Type": "application/json"},
+        body: JSON.stringify(usuario)
+    })
+        .then(() => {
+            botonCerrarCarrito.click()
+        })
 }

@@ -29,18 +29,25 @@ botonLogin.onclick = async () => {
 }
 
 botonVerCarrito.onclick = mostrarCarrito
+
 botonCerrarCarrito.onclick = () => {
     while (modalCarrito.firstChild) {
-        modalCarrito.removeChild(modalCarrito.firstChild);
+        modalCarrito.removeChild(modalCarrito.firstChild)
       }
+    totalCompra = 0
 }
 botonCerrarCarrito2.onclick = () => {
     while (modalCarrito.firstChild) {
-        modalCarrito.removeChild(modalCarrito.firstChild);
-      }
+        modalCarrito.removeChild(modalCarrito.firstChild)
+    }
+    totalCompra = 0
 }
-
-botonPagar.onclick = pantallaPago
+botonPagar.onclick = () => {
+    while (modalCarrito.firstChild) {
+        modalCarrito.removeChild(modalCarrito.firstChild)
+    }
+    totalCompra = 0
+}
 
 botonRegistro.onclick = () => {
     const nombreUsuario = document.getElementById('nombreUsuario')
@@ -90,13 +97,19 @@ const completarProductos = async () => {
         cartaProducto.className = "card m-3 p-0 d-flex justify-content-center producto animate__animated animate__flipInX"
         contenedorProducto.className = "card-body p-0 contenedorProducto"
         botonAgregarCarrito.className = "btn p-0 btn-outline-dark"
-        botonAgregarCarrito.setAttribute('codigo',i+1)
+        botonAgregarCarrito.setAttribute('codigo',listaArticulos[i].codigo)
 
         botonAgregarCarrito.onclick = (e) => {
             if(localStorage.getItem('tokenUser') != undefined){
                 const productoASumar = e.target.getAttribute('codigo')
-                const stockProductoASumar = listaArticulos[productoASumar].producto.stock
-                elegirCantidadProducto(stockProductoASumar,listaArticulos[productoASumar].codigo)
+                let stockProductoASumar
+
+                for(let j = 0; j < listaArticulos.length; j++){
+                    if(listaArticulos[j].codigo === productoASumar){
+                        stockProductoASumar = listaArticulos[j].producto.stock
+                    }
+                }
+                elegirCantidadProducto(stockProductoASumar,productoASumar)
             }else{
                 Swal.fire({
                     icon: 'error',
@@ -117,6 +130,15 @@ const completarProductos = async () => {
         contenedorCartas.append(cartaProducto)
     }
 }
+
+
+document.addEventListener("keyup", e => {
+    if( e.target.matches('#buscador')){
+        document.querySelectorAll('.producto').forEach( producto => {
+            producto.textContent.toLowerCase().includes(e.target.value.toLowerCase()) ? producto.classList.remove("d-none") : producto.classList.add("d-none")
+        })
+    }
+})
 
 
 buscarToken()

@@ -32,11 +32,14 @@ ul {
     @include sizes(300px,224px);
 }
 .oculto {
-    display: none;
+    display: none !important;
 }
 .producto {
     @include sizes(250px,300px);
 }
 .imagenProducto{
     max-height: 200px !important;
+}
+.iframe{
+    @include sizes(100%,60vh)
 }
