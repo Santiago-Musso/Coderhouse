@@ -22,15 +22,23 @@ class Usuarios{
 
 //***************************Constantes y variables*************************
 
-const $divAdmin = document.getElementById('divAdmin')
-const $div = document.getElementById('div')
-const $tablaProductos = document.getElementById('tablaProductos')
-const $divCliente = document.getElementById('divCliente')
-const $botonSalir = document.createElement('button')
 const nombreUsuario = document.getElementById('usuario')
 const contraseñaUsuario = document.getElementById('contraseña')
-const myModal = document.getElementById('modalCarrito')
-const myInput = document.getElementById('modal')
+const botonLogin = document.getElementById('botonLogin')
+const botonRegistro = document.getElementById('botonRegistro')
+const botonSalirUsuario = document.getElementById('salirUsuario')
+const iconoLogin = document.querySelector('.login')
+const nombreUsuarioLogueado = document.getElementById('nombreUsuarioLogueado')
+const botonVerCarrito = document.getElementById('verCarrito')
+const botonCerrarCarrito = document.getElementById('cierreCarrito')
+const botonCerrarCarrito2 = document.getElementById('cierreCarrito2')
+const contendorProductos = document.querySelector('.contenedorProductos')
+const modalCarrito = document.querySelector('.modal-body')
+const botonPagar = document.getElementById('botonPagar')
+const botonAgregarProducto = document.getElementById('agregarNuevoProducto')
+const botonSalir = document.getElementById('salirAdmin')
+
+let codigoNuevoProducto
 let totalCompra = 0
 
 

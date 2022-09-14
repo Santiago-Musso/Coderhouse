@@ -1,15 +1,3 @@
-const botonLogin = document.getElementById('botonLogin')
-const botonRegistro = document.getElementById('botonRegistro')
-const botonSalirUsuario = document.getElementById('salirUsuario')
-const iconoLogin = document.querySelector('.login')
-const nombreUsuarioLogueado = document.getElementById('nombreUsuarioLogueado')
-const botonVerCarrito = document.getElementById('verCarrito')
-const botonCerrarCarrito = document.getElementById('cierreCarrito')
-const botonCerrarCarrito2 = document.getElementById('cierreCarrito2')
-const contendorProductos = document.querySelector('.contenedorProductos')
-const modalCarrito = document.querySelector('.modal-body')
-const botonPagar = document.getElementById('botonPagar')
-
 
 //Valida el usuario ingresado
 botonLogin.onclick = async () => {
@@ -30,6 +18,8 @@ botonLogin.onclick = async () => {
 
 botonVerCarrito.onclick = mostrarCarrito
 
+//Cierra el carrito y borra todos los elementos de los modales por si se los llama de nuevo
+
 botonCerrarCarrito.onclick = () => {
     while (modalCarrito.firstChild) {
         modalCarrito.removeChild(modalCarrito.firstChild)
@@ -48,6 +38,9 @@ botonPagar.onclick = () => {
     }
     totalCompra = 0
 }
+
+
+//Registra un usuario nuevo, validando que no sea vacio el input
 
 botonRegistro.onclick = () => {
     const nombreUsuario = document.getElementById('nombreUsuario')
@@ -74,6 +67,7 @@ botonRegistro.onclick = () => {
     }
 }
 
+//Desloguea el usuario logeado quitando el token del local storage
 botonSalirUsuario.onclick = () => {
     if(localStorage.getItem('tokenUser') != undefined){
         localStorage.removeItem('tokenUser')
@@ -131,6 +125,16 @@ const completarProductos = async () => {
     }
 }
 
+//Por cada tecla que se presiona en la barra de busqueda filtra los productos
+
+document.addEventListener("keyup", e => {
+    if( e.target.matches('#buscador')){
+        document.querySelectorAll('.producto').forEach( producto => {
+            const palabra = producto.textContent.slice(0,producto.textContent.length - 18).toLowerCase()
+            palabra.includes(e.target.value.toLowerCase()) ? producto.classList.remove("d-none") : producto.classList.add("d-none")
+        })
+    }
+})
 
 document.addEventListener("keyup", e => {
     if( e.target.matches('#buscador')){
