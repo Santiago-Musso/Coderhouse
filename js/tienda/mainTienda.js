@@ -136,13 +136,6 @@ document.addEventListener("keyup", e => {
     }
 })
 
-document.addEventListener("keyup", e => {
-    if( e.target.matches('#buscador')){
-        document.querySelectorAll('.producto').forEach( producto => {
-            producto.textContent.toLowerCase().includes(e.target.value.toLowerCase()) ? producto.classList.remove("d-none") : producto.classList.add("d-none")
-        })
-    }
-})
 
 buscarToken()
 completarProductos()
