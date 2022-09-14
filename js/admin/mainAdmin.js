@@ -1,8 +1,3 @@
-const botonAgregarProducto = document.getElementById('agregarNuevoProducto')
-const botonSalir = document.getElementById('salirAdmin')
-let codigoNuevoProducto
-
-
 //Agrega el producto, validando que ningun input quede vacío
 botonAgregarProducto.onclick = () => {
     const nombreNuevoProducto = document.getElementById('nombreNuevoProducto')
@@ -32,8 +27,8 @@ botonSalir.onclick = () => {
     window.location.href = './tienda.html'
 }
 
-//Lee todos los productos que hay en la lista de articulos almacenada en el LocalStorage
-//y los va sumando a la tabla, le agrega tambien 
+//Llama a la API para obtener todos los productos
+//y los va sumando a la tabla 
 const listarProductos = async () => {
     const codigoProducto = document.getElementById('codigoNuevoProducto')
 
@@ -49,10 +44,11 @@ const listarProductos = async () => {
         const precioProducto = document.createElement('td')
         const stockProducto = document.createElement('td')
         const botonBorrar = document.createElement('td')
-        const tablaProductos = document.querySelector('table')
         const filaProducto = document.createElement('tr')
         const cuerpoTabla = document.createElement('tbody')
         const borrarProducto = document.createElement('button')
+        
+        const tablaProductos = document.querySelector('table')
 
         borrarProducto.className = 'btn-close'
         borrarProducto.setAttribute('codigo',i)
