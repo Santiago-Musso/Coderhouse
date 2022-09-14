@@ -19,6 +19,7 @@ botonLogin.onclick = async () => {
 botonVerCarrito.onclick = mostrarCarrito
 
 //Cierra el carrito y borra todos los elementos de los modales por si se los llama de nuevo
+
 botonCerrarCarrito.onclick = () => {
     while (modalCarrito.firstChild) {
         modalCarrito.removeChild(modalCarrito.firstChild)
@@ -38,7 +39,9 @@ botonPagar.onclick = () => {
     totalCompra = 0
 }
 
+
 //Registra un usuario nuevo, validando que no sea vacio el input
+
 botonRegistro.onclick = () => {
     const nombreUsuario = document.getElementById('nombreUsuario')
     const contraseñaUsuario = document.getElementById('contraseñaUsuario')
@@ -129,6 +132,14 @@ document.addEventListener("keyup", e => {
         document.querySelectorAll('.producto').forEach( producto => {
             const palabra = producto.textContent.slice(0,producto.textContent.length - 18).toLowerCase()
             palabra.includes(e.target.value.toLowerCase()) ? producto.classList.remove("d-none") : producto.classList.add("d-none")
+        })
+    }
+})
+
+document.addEventListener("keyup", e => {
+    if( e.target.matches('#buscador')){
+        document.querySelectorAll('.producto').forEach( producto => {
+            producto.textContent.toLowerCase().includes(e.target.value.toLowerCase()) ? producto.classList.remove("d-none") : producto.classList.add("d-none")
         })
     }
 })
