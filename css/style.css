@@ -40,3 +40,22 @@ ul {
 .iframe {
   height: 60vh !important;
   width: 100% !important; }
+
+nav {
+  z-index: 1000; }
+
+@media screen {
+  section {
+    min-height: calc(100vh - 180px); } }
+
+@media screen and (min-width: 576px) {
+  section {
+    min-height: calc(100vh - 202px); } }
+
+@media screen and (min-width: 768px) {
+  section {
+    min-height: calc(100vh - 266px); } }
+
+@media screen and (min-width: 992px) {
+  section {
+    min-height: calc(100vh - 417px); } }

@@ -43,3 +43,20 @@ ul {
 .iframe{
     @include sizes(100%,60vh)
 }
+nav {
+    z-index: 1000;
+}
+section{
+    @media screen {
+        min-height: calc(100vh - 180px);
+    }
+    @media screen and (min-width: 576px) {
+        min-height: calc(100vh - 202px);
+    }
+    @media screen and (min-width: 768px) {
+        min-height: calc(100vh - 266px);
+    }
+    @media screen and (min-width: 992px) {
+        min-height: calc(100vh - 417px);
+    }
+}
